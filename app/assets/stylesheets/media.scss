@@ -1,11 +1,10 @@
-
 @media only screen and (max-width: 1420px) {
   .container {
     width: 1170px;
   }
-  
+
   /* Header */
-  
+
   .header {
     &-content {
       width: 40rem;
@@ -34,19 +33,19 @@
       }
     }
   }
-  
+
   .logo {
     margin: 0 1rem;
   }
-  
+
   .nav {
     li {
       margin: -0.05rem 1rem 0 0;
     }
   }
-  
+
   /* Showcase */
-  
+
   .showcase {
     padding: 8rem 0 18rem;
     &-inner {
@@ -57,7 +56,7 @@
       }
     }
   }
-  
+
 }
 
 @media only screen and (max-width: 1200px) {
@@ -65,9 +64,9 @@
   .schedule {
     width: 970px;
   }
-  
+
   /* Header */
-  
+
   .header {
     &-items {
       padding: 12px 0;
@@ -79,28 +78,28 @@
       width: 36rem;
     }
   }
-  
+
   .nav {
     li {
       margin: -0.05rem 0.4rem 0 0;
     }
   }
-  
+
   .head {
     margin: 0 0 2rem;
   }
-  
+
   /* Showcase */
-  
+
   .showcase {
     padding: 7rem 0 16rem;
     &-inner {
       height: 32rem;
     }
   }
-  
+
   /* Main-about */
-  
+
   .main-about {
     padding: 4rem 0 0;
     &-img {
@@ -124,17 +123,17 @@
       }
     }
   }
-  
+
   /* Why */
-  
+
   .why {
     &-item {
       margin: 0 4rem 0 0;
     }
   }
-  
+
   /* Footer */
-  
+
   .footer {
     padding: 2.5rem 0 2rem;
     &-header {
@@ -155,9 +154,9 @@
       margin: 0 3rem 0 0;
     }
   }
-  
+
   /* Conditions */
-  
+
   .conditions-item {
     &.first {
       .part-item {
@@ -176,9 +175,9 @@
       }
     }
   }
-  
+
   /* Contacts */
-  
+
   .contacts {
     &-info {
       width: 20rem;
@@ -187,9 +186,9 @@
       width: 37rem;
     }
   }
-  
+
   /* Consent */
-  
+
   .consent {
     &-nav {
       li {
@@ -246,9 +245,9 @@
   .schedule {
     width: 750px;
   }
-  
+
   /* Header */
-  
+
   .header {
     position: relative;
     &-content {
@@ -272,7 +271,7 @@
       }
     }
   }
-  
+
   .burger-wrap {
     display: block;
     width: 30px;
@@ -323,7 +322,7 @@
       }
     }
   }
-  
+
   .nav {
     ul {
       position: absolute;
@@ -353,9 +352,9 @@
       }
     }
   }
-  
+
   /* Showcase */
-  
+
   .showcase {
     padding: 6rem 0 15rem;
     &-content {
@@ -389,9 +388,9 @@
       }
     }
   }
-  
+
   /* Main-about */
-  
+
   .main-about {
     &-img {
       width: 18rem;
@@ -405,9 +404,9 @@
       }
     }
   }
-  
+
   /* Why */
-  
+
   .why {
     padding: 3rem 0;
     &-item {
@@ -417,9 +416,9 @@
       }
     }
   }
- 
+
   /* Footer */
-  
+
   .footer {
     &-header {
       &-menu {
@@ -449,9 +448,9 @@
       margin: 0 0 1.5rem;
     }
   }
-  
+
   /* About */
-  
+
   .about {
     &-content {
       p {
@@ -459,9 +458,9 @@
       }
     }
   }
-  
+
   /* Conditions */
-  
+
   .conditions-item {
     .part-items {
       display: block;
@@ -474,9 +473,9 @@
       padding: 0;
     }
   }
-  
+
   /* Question */
-  
+
   .question {
     &-inputs {
       width: 21.75rem;
@@ -485,9 +484,9 @@
       padding: 2.2rem 0 0;
     }
   }
-  
+
   /* Contacts */
-  
+
   .contacts {
     &-content {
       display: block;
@@ -500,7 +499,7 @@
       width: auto;
     }
   }
-  
+
   .certificate {
     li:last-child {
       display: none;
@@ -509,9 +508,9 @@
       width: 25%;
     }
   }
-  
+
   /* Consent */
-  
+
   .consent {
     &-nav {
       display: flex;
@@ -570,9 +569,9 @@
       }
     }
   }
-  
+
   /* Schedule */
-  
+
   .schedule {
     &-item {
       p {
@@ -581,7 +580,7 @@
       }
     }
   }
-  
+
 }
 
 @media only screen and (max-width: 767px) {
@@ -590,9 +589,9 @@
     width: auto;
     padding: 0 15px;
   }
-  
+
   /* Header */
-  
+
   .header {
     display: block;
     text-align: center;
@@ -618,25 +617,25 @@
       }
     }
   }
-  
+
   .burger-wrap {
     margin: 0 auto;
     position: absolute;
     top: 1.5rem;
     right: 1.7rem;
   }
-  
+
   .nav {
     margin: 0 auto 1rem;
   }
-  
+
   .logo {
     float: none;
     margin: 1rem 0 0.8rem 1rem;
   }
-  
+
   /* Showcase */
-  
+
   .showcase {
     &-info {
       bottom: 6rem;
@@ -658,9 +657,9 @@
       }
     }
   }
-  
+
   /* Main-about */
-  
+
   .main-about {
     &-items {
       display: block;
@@ -672,9 +671,9 @@
       margin: 0 auto;
     }
   }
-  
+
   /* Why */
-  
+
   .why {
     &-head {
       text-align: center;
@@ -688,9 +687,9 @@
       margin: 0 1rem 2rem !important;
     }
   }
-  
+
   /* Footer */
-  
+
   .footer {
     &-header {
       display: block;
@@ -716,29 +715,29 @@
       justify-content: center;
     }
   }
-  
+
   .bottom {
     text-align: center;
   }
-  
+
   /* About */
-  
+
   .about {
     &-content {
       padding-right: 0;
     }
   }
-  
+
   /* Conditions */
-  
+
   .conditions {
     .part-wrap {
       display: block;
     }
   }
-  
+
   /* Question */
-  
+
   .question {
     &-inputs {
       display: block;
@@ -755,9 +754,9 @@
       }
     }
   }
-  
+
   /* Contacts */
-  
+
   .contacts {
     &-item {
       .docs-items {
@@ -768,7 +767,7 @@
       }
     }
   }
-  
+
   .certificate {
     li:first-child {
       display: none;
@@ -777,17 +776,17 @@
       width: 33.33%;
     }
   }
-  
+
   /* Map */
-  
+
   .map {
     iframe {
       height: 19.2rem;
     }
   }
-  
+
   /* Consent */
-  
+
   .consent {
     &-nav {
       margin: 0 0 3rem;
@@ -826,9 +825,9 @@
       }
     }
   }
-  
+
   /* Schedule */
-  
+
   .schedule {
     padding: 4.5rem 0;
     &__head {
@@ -862,13 +861,13 @@
       }
     }
   }
-  
+
 }
 
 @media only screen and (max-width: 575px) {
-  
+
   /* Header */
-  
+
   .header {
     &-info {
       &-nav {
@@ -899,7 +898,7 @@
       }
     }
   }
-  
+
   /* Showcase */
 
   .showcase {
@@ -920,9 +919,9 @@
       }
     }
   }
-  
+
   /* Footer */
-  
+
   .footer {
     &-items {
       display: block;
@@ -933,9 +932,9 @@
       margin: 0;
     }
   }
-  
+
   /* Question */
-  
+
   .question {
     &-bottom {
       display: block;
@@ -946,7 +945,7 @@
     }
     &_showcase {
       .showcase-inner-content {
-        padding: 3rem 0 0; 
+        padding: 3rem 0 0;
       }
       .showcase-inner-text {
         font-size: 1.2rem;
@@ -956,9 +955,9 @@
       }
     }
   }
-  
+
   /* Contacts */
-  
+
   .contacts {
     &-item {
       padding: 2rem 0;
@@ -991,7 +990,7 @@
       justify-content: center;
     }
   }
-  
+
   .certificate {
     li:nth-child(2) {
       display: none;
@@ -1000,9 +999,9 @@
       width: 50%;
     }
   }
-  
+
   /* Consent */
-  
+
   .consent {
     &__text {
       margin: 0 0 2.7rem;
@@ -1042,13 +1041,4 @@
 }
 
 @media only screen and (max-width: 520px) {
-  
-
 }
-
-
-
-
-
-
-
