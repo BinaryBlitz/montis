@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   scope controller: :pages do
-    get 'about', 'conditions', 'contacts'
-    # get 'consent', 'question', 'reviews'
+    get 'about', 'conditions', 'contacts', 'question'
+    # get 'consent', 'reviews'
   end
 end
