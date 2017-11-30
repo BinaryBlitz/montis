@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="22" viewBox="0 0 22 22">
+  <defs>
+    <polygon id="ic-down-a" points="22 11 11 22 0 11 2.009 9.057 9.65 16.731 9.65 0 12.35 0 12.35 16.731 20.057 9.057"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <use fill="#FFF" xlink:href="#ic-down-a"/>
+  </g>
+</svg>
