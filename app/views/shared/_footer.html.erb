@@ -2,26 +2,28 @@
   <div class="container">
     <div class="footer">
       <div class="footer-header">
-        <a class="logo" href="#"><%= image_tag "logo-montis-footer.svg" %></a>
+        <%= link_to root_path, class: 'logo' do %>
+          <%= image_tag "logo-montis-footer.svg" %>
+        <% end %>
         <div class="footer-header-menu">
           <ul>
             <li>
-              <a href="#">О нас</a>
+              <%= link_to 'О нас', about_path %>
             </li>
             <li>
-              <a href="#">Условия</a>
+              <%= link_to 'Условия', conditions_path %>
             </li>
             <li>
-              <a href="#">Вопрос-ответ</a>
+              <%= link_to 'Вопрос-ответ', question_path %>
             </li>
             <li>
-              <a href="#">отзывы</a>
+              <%= link_to 'Отзывы', reviews_path %>
             </li>
             <li>
-              <a href="#">Онлайн одобрение</a>
+              <%= link_to 'Онлайн одобрение', '#' %>
             </li>
             <li>
-              <a href="#">Контакты</a>
+              <%= link_to 'Контакты', contacts_path %>
             </li>
           </ul>
         </div>

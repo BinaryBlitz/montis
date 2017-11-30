@@ -2,9 +2,9 @@
   <div class="container_large">
     <div class="header">
       <div class="header-items">
-        <a class="logo" href="#">
+        <%= link_to root_path, class: 'logo' do %>
           <%= image_tag "logo-montis-header.svg" %>
-        </a>
+        <% end %>
         <div class="header-content">
           <div class="nav">
             <div class="burger-wrap">
@@ -12,22 +12,22 @@
             </div>
             <ul>
               <li>
-                <a href="#">О нас</a>
+                <%= link_to 'О нас', about_path %>
               </li>
               <li>
-                <a href="#">Условия</a>
+                <%= link_to 'Условия', conditions_path %>
               </li>
               <li>
-                <a href="#">Вопрос-ответ</a>
+                <%= link_to 'Вопрос-ответ', question_path %>
               </li>
               <li>
-                <a href="#">отзывы</a>
+                <%= link_to 'Отзывы', reviews_path %>
               </li>
               <li>
-                <a href="#">Онлайн одобрение</a>
+                <%= link_to 'Онлайн одобрение', '#' %>
               </li>
               <li>
-                <a href="#">Контакты</a>
+                <%= link_to 'Контакты', contacts_path %>
               </li>
               <li>
                 <a class="header-cabinet" href="#">
