@@ -1,0 +1,142 @@
+<div class="header-wrap">
+  <div class="container_large">
+    <div class="header">
+      <div class="header-items">
+        <a class="logo" href="#">
+          <%= image_tag "logo-montis-header.svg" %>
+        </a>
+        <div class="header-content">
+          <div class="nav">
+            <div class="burger-wrap">
+              <a href="#"><span></span></a>
+            </div>
+            <ul>
+              <li>
+                <a href="#">О нас</a>
+              </li>
+              <li>
+                <a href="#">Условия</a>
+              </li>
+              <li>
+                <a href="#">Вопрос-ответ</a>
+              </li>
+              <li>
+                <a href="#">отзывы</a>
+              </li>
+              <li>
+                <a href="#">Онлайн одобрение</a>
+              </li>
+              <li>
+                <a href="#">Контакты</a>
+              </li>
+              <li>
+                <a class="header-cabinet" href="#">
+                  <%= image_tag "ic-myoffice-inactiv.png" %> <span>Мой кабинет</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="header-info">
+        <form action="post">
+          <div class="header-info-nav">
+            <ul>
+              <li><%= image_tag "ic-calculator-header.svg" %> <span>Калькулятор</span></li>
+              <li class="blue"><%= image_tag "ic-phone-header.svg" %> <span>Обратный звонок</span></li>
+            </ul>
+          </div>
+          <div class="header-info-item calc">
+            <h2>рассчитать <span>условия займа</span></h2>
+            <div class="calc-item calc-sum">
+              <span>cумма займа</span>
+              <p><i class="calc-sum-amount"></i> <b>₽</b></p>
+              <div class="slider slider-sum"></div>
+            </div>
+            <div class="calc-item calc-term">
+              <span>срок займа</span>
+              <p><i class="calc-term-amount"></i> месяцев</p>
+              <div class="slider slider-term"></div>
+            </div>
+            <div class="calc-cont">
+              <div class="calc-radios">
+                <label></label>
+                <div class="radio">
+                  <label><input name="calc-radio" type="radio"> <span></span></label>
+                </div><label></label>
+                <div class="calc-radios-text">
+                  <label>под залог автомобиля</label>
+                </div><label></label> <label></label>
+                <div class="radio">
+                  <label><input name="calc-radio" type="radio"> <span></span></label>
+                </div><label></label>
+                <div class="calc-radios-text">
+                  <label>под залог ПТС</label>
+                </div><label></label>
+              </div>
+              <div class="calc-cont-info">
+                <p>ежемесячный платеж</p><b>4 000 <span>₽</span></b>
+              </div>
+            </div>
+            <div class="calc-input">
+              <input onblur="placeholder='Номер телефона';" onfocus="placeholder='';" placeholder="Номер телефона" type="text">
+            </div>
+            <div class="calc-select">
+              <div class="calc-select-item">
+                <select>
+                  <option value="">
+                    Марка автомобиля
+                  </option>
+                  <option value="">
+                    Марка автомобиля
+                  </option>
+                  <option value="">
+                    Марка автомобиля
+                  </option>
+                </select>
+              </div>
+              <div class="calc-select-item">
+                <select>
+                  <option value="">
+                    Год выпуска
+                  </option>
+                  <option value="">
+                    Год выпуска
+                  </option>
+                  <option value="">
+                    Год выпуска
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="calc-link">
+              <a href="#">подать заявку</a>
+            </div>
+          </div>
+          <div class="header-info-item callback">
+            <h2>Не можете дозвониться?</h2>
+            <div class="callback-text">
+              Оставьте ваш телефон.<br>
+              Наш оператор свяжется с вами в ближайшее время.
+            </div>
+            <div class="callback-input">
+              <input onblur="placeholder='Ваше имя';" onfocus="placeholder='';" placeholder="Ваше имя" type="text">
+            </div>
+            <div class="callback-input">
+              <input onblur="placeholder='Номер телефона';" onfocus="placeholder='';" placeholder="Номер телефона" type="text">
+            </div>
+            <div class="callback-checkboxs">
+              <label></label>
+              <div class="checkbox">
+                <label><input type="checkbox"> <span></span></label>
+              </div><label><i>Я согласен с условиями обработки<br>
+              персональных данных</i></label>
+            </div>
+            <div class="callback-link">
+              <a href="#">Заказать звонок</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
