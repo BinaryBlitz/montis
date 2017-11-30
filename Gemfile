@@ -18,8 +18,6 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -29,6 +27,14 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-jquery', '~> 3.2'
+  gem 'rails-assets-jquery-ui', '~> 1.12'
+  gem 'rails-assets-fancybox', '~> 3.2'
+  gem 'rails-assets-select2', '~> 4.0'
+  gem 'rails-assets-slick-carousel', '~> 1.8'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -11,4 +11,9 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
+//= require jquery-ui
+//= require fancybox
+//= require slick-carousel
+//= require select2
 //= require_tree .
