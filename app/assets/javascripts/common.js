@@ -164,30 +164,31 @@ $(document).ready(function() {
 
   // Online approval carousel
 
-  $(".consent-carousel").slick({
+  $(".estimation-carousel").slick({
+    accessibility: false,
     arrows: false,
+    draggable: false,
     fade: true,
     infinite: false,
     swipe: false,
-    touchMove: false,
-    accessibility: false
+    touchMove: false
   });
 
-  $(".consent-nav li").click(function() {
+  $(".estimation-nav li").click(function() {
     var current = $(this).index();
 
-    $(".consent-nav li").removeClass("active");
+    $(".estimation-nav li").removeClass("active");
     $(this).addClass("active");
 
-    consent_completed(current);
+    estimation_completed(current);
 
-    $(".consent-carousel").slick("slickGoTo", current);
+    $(".estimation-carousel").slick("slickGoTo", current);
 
     return false;
   });
 
-  function consent_completed(current) {
-    $(".consent-nav li").each(function() {
+  function estimation_completed(current) {
+    $(".estimation-nav li").each(function() {
       if ($(this).index() < current) {
         $(this).addClass("completed");
       } else {
@@ -196,25 +197,25 @@ $(document).ready(function() {
     });
   }
 
-  $(".consent-back").click(function(e) {
+  $(".estimation-back").click(function(e) {
     e.preventDefault();
-    $(".consent-carousel").slick("slickPrev");
-    var current = $(".consent-carousel").slick("slickCurrentSlide");
-    $(".consent-nav li").removeClass("active");
-    $(".consent-nav li")
+    $(".estimation-carousel").slick("slickPrev");
+    var current = $(".estimation-carousel").slick("slickCurrentSlide");
+    $(".estimation-nav li").removeClass("active");
+    $(".estimation-nav li")
       .eq(current)
       .addClass("active");
-    consent_completed(current);
+    estimation_completed(current);
   });
 
-  $(".consent-next").click(function(e) {
+  $(".estimation-next").click(function(e) {
     e.preventDefault();
-    $(".consent-carousel").slick("slickNext");
-    var current = $(".consent-carousel").slick("slickCurrentSlide");
-    $(".consent-nav li").removeClass("active");
-    $(".consent-nav li")
+    $(".estimation-carousel").slick("slickNext");
+    var current = $(".estimation-carousel").slick("slickCurrentSlide");
+    $(".estimation-nav li").removeClass("active");
+    $(".estimation-nav li")
       .eq(current)
       .addClass("active");
-    consent_completed(current);
+    estimation_completed(current);
   });
 });

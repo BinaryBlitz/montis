@@ -1569,10 +1569,13 @@ select {
   }
 }
 
-/* Consent */
+/* Estimation */
 
-.consent {
+.estimation {
   padding: 2.4rem 0 0;
+  &-carousel {
+    user-select: text;
+  }
   &__text {
     font-size: 1.12rem;
     font-weight: 600;
@@ -1741,7 +1744,7 @@ select {
       }
     }
     .query {
-      .consent-info-button {
+      .estimation-info-button {
         position: relative;
         &:after {
           content: '';
@@ -2034,7 +2037,7 @@ select {
       }
     }
     &.decision {
-      .consent-sidebar {
+      .estimation-sidebar {
         &-img {
           margin: 0 auto 2.2rem;
         }
@@ -2061,7 +2064,7 @@ select {
     }
     &.query {
       margin: 7.5rem 0 0;
-      .consent-sidebar {
+      .estimation-sidebar {
         &-img {
           margin: 0 auto 3.3rem;
         }
