@@ -79,7 +79,7 @@ $(document).ready(function() {
       $(".mark-sum-amount").html(ui.value);
 
       var months = parseInt($(".mark-term-amount").html());
-      $("#mark-monthly-payment").html(monthlyPayment(parseInt(ui.value), months));
+      $("#mark-info-monthly-payment").html(monthlyPayment(parseInt(ui.value), months));
     }
   });
 
@@ -92,9 +92,10 @@ $(document).ready(function() {
     value: 12,
     slide: function(event, ui) {
       $(".mark-term-amount").html(ui.value);
+      $("#mark-info-term").html(ui.value);
 
       var amount = parseInt($(".mark-sum-amount").html());
-      $("#mark-monthly-payment").html(monthlyPayment(amount, parseInt(ui.value)));
+      $("#mark-info-monthly-payment").html(monthlyPayment(amount, parseInt(ui.value)));
     }
   });
 
@@ -244,6 +245,9 @@ $(document).ready(function() {
   });
 
   function checkAuto() {
+    nextSlide();
+    return;
+
     var username = 'avtocashunicom@gmail.com';
     var password = 'avtocashunicom24';
 
@@ -310,5 +314,11 @@ $(document).ready(function() {
     e.preventDefault();
 
     checkAuto();
+  });
+
+  $('#button-next-step').click(function(e) {
+    e.preventDefault();
+
+    nextSlide();
   });
 });
