@@ -22,7 +22,7 @@
                   <h2 class="calc__head">Для расчета кредита, укажите <span>государственный</span><br> или <span>vin</span> номер вашего автомобиля:</h2>
                   <form action="posr">
                     <div class="calc-input">
-                      <input type="text" placeholder="vin / гос номер автомобиля" onfocus="placeholder='';" onblur="placeholder='vin / гос номер автомобиля';" />
+                      <input type="text" placeholder="vin автомобиля" id="vin" />
                     </div>
                     <!-- <div class="calc-check">
                       <div class="calc-check-img">
@@ -46,10 +46,9 @@
                   89<span>%</span>
                 </div>
                 <div class="estimation-sidebar-link">
-                  <a class="estimation-next" href="#">Узнать размер кредита</a>
+                  <a class="estimation-next" href="#" id="button-estimate-auto">Узнать размер кредита</a>
                 </div>
               </div>
-
             </div>
           </div>
 
@@ -57,18 +56,18 @@
             <div class="estimation-content">
               <div class="estimation-info">
                 <div class="query">
-                  <h2 class="calc__head">Сумма предварительно одобренного кредита <span>452 840 <i>₽</i></span></h2>
+                  <h2 class="calc__head">Сумма предварительно одобренного кредита <span><span class="preliminary-amount">500000</span> <i>₽</i></span></h2>
                   <form action="post" class="mark">
 
                     <div class="mark-item">
-                      <span>сумма:</span>
+                      <span class="selected-amount">сумма:</span>
                       <p>
                         <i class="mark-sum-amount"></i>
                         <b>₽</b>
                       </p>
                       <div class="mark-from">
-                        <div>5 000 <i>₽</i></div>
-                        <div>452 840 <i>₽</i></div>
+                        <div>5000 <i>₽</i></div>
+                        <div><span class="preliminary-amount">500000</span> <i>₽</i></div>
                       </div>
                       <div class="mark-slider mark-sum"></div>
                     </div>
@@ -76,7 +75,7 @@
                       <span>срок:</span>
                       <p>
                         <i class="mark-term-amount">12</i>
-                        <b>месяцев</b>
+                        <b>мес.</b>
                       </p>
                       <div class="mark-from">
                         <div>1 <i>месяц</i></div>
@@ -88,15 +87,15 @@
                     <div class="mark-info">
                       <div class="mark-info-item">
                         <p>срок займа</p>
-                        <div class="mark-info-number">12<span> месяцев</span></div>
+                        <div class="mark-info-number">12<span class="unit"> месяцев</span></div>
                       </div>
                       <div class="mark-info-item">
                         <p>ежемесячный платеж</p>
-                        <div class="mark-info-number">58 542<span> ₽</span></div>
+                        <div class="mark-info-number"><span id="mark-monthly-payment">50000</span><span class="unit"> ₽</span></div>
                       </div>
                       <div class="mark-info-item">
                         <p>Ставка</p>
-                        <div class="mark-info-number">7,8%<span> в месяц</span></div>
+                        <div class="mark-info-number">6%<span class="unit"> в месяц</span></div>
                       </div>
                     </div>
 

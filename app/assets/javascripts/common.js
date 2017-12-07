@@ -72,10 +72,14 @@ $(document).ready(function() {
   $(".mark-sum").slider({
     range: "min",
     min: 5000,
-    max: 452840,
-    value: 452840,
+    max: 500000,
+    value: 50000,
+    step: 1000,
     slide: function(event, ui) {
       $(".mark-sum-amount").html(ui.value);
+
+      var months = parseInt($(".mark-term-amount").html());
+      $("#mark-monthly-payment").html(monthlyPayment(parseInt(ui.value), months));
     }
   });
 
@@ -88,6 +92,9 @@ $(document).ready(function() {
     value: 12,
     slide: function(event, ui) {
       $(".mark-term-amount").html(ui.value);
+
+      var amount = parseInt($(".mark-sum-amount").html());
+      $("#mark-monthly-payment").html(monthlyPayment(amount, parseInt(ui.value)));
     }
   });
 
@@ -221,8 +228,7 @@ $(document).ready(function() {
     estimation_completed(current);
   });
 
-  $(".estimation-next").click(function(e) {
-    e.preventDefault();
+  function nextSlide() {
     $(".estimation-carousel").slick("slickNext");
     var current = $(".estimation-carousel").slick("slickCurrentSlide");
     $(".estimation-nav li").removeClass("active");
@@ -230,5 +236,79 @@ $(document).ready(function() {
       .eq(current)
       .addClass("active");
     estimation_completed(current);
+  }
+
+  $(".estimation-next").click(function(e) {
+    // e.preventDefault();
+    // nextSlide();
+  });
+
+  function checkAuto() {
+    var username = 'avtocashunicom@gmail.com';
+    var password = 'avtocashunicom24';
+
+    var vin = $('#vin').val();
+
+    $.ajax({
+      method: 'POST',
+      url: 'https://unicom24.ru/api/avto_check/v1/',
+      dataType: 'json',
+      headers: {
+        'Authorization': 'Basic ' + btoa(username + ':' + password)
+      },
+      data: {
+        vin: vin
+      },
+      success: function(data) {
+        var carPriceResponse = data.response.car_price;
+        var amount = carPriceResponse.items[0].amount;
+        console.log(amount);
+
+        $(".mark-sum").data('amount', amount);
+        $(".mark-sum").slider('option', 'max', amount);
+        $(".preliminary-amount").html(amount);
+
+        nextSlide();
+        return true;
+      },
+      error: function() {
+        console.log('Error');
+        return false;
+      }
+    });
+  }
+
+  function checkFinancialHealth() {
+    $.ajax({
+      method: 'POST',
+      url: 'https://unicom24.ru/api/partners/rfh/v1/request/',
+      dataType: 'json',
+      headers: {
+        'Authorization': 'Basic ' + btoa(username + ':' + password)
+      },
+      data: {
+        first_name: "Тест",
+        middle_name: "Тест",
+        passport_date: "2010-01-01",
+        dob: "1990-01-01",
+        second_name: "Тест",
+        passport: "10"
+      },
+      success: function(data) {
+        console.log(data);
+        nextSlide();
+        return true;
+      },
+      error: function() {
+        console.log('Error');
+        return false;
+      }
+    });
+  }
+
+  $('#button-estimate-auto').click(function(e) {
+    e.preventDefault();
+
+    checkAuto();
   });
 });

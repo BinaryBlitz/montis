@@ -1908,7 +1908,7 @@ select {
       }
       &-item {
         margin: 0 0 3.5rem;
-        span {
+        span.selected-amount {
           font-size: 1.12rem;
           font-weight: 600;
           letter-spacing: 0.1rem;
@@ -1964,7 +1964,7 @@ select {
           color: #585bd3;
           font-size: 1.4rem;
           font-weight: 600;
-          span {
+          span.unit {
             font-size: 0.83rem;
             font-family: 'HelveticaNeue';
             font-weight: bold;
