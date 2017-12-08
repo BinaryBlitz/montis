@@ -245,9 +245,6 @@ $(document).ready(function() {
   });
 
   function checkAuto() {
-    nextSlide();
-    return;
-
     var username = 'avtocashunicom@gmail.com';
     var password = 'avtocashunicom24';
 
