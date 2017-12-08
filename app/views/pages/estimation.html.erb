@@ -120,46 +120,51 @@
             </div>
           </div>
           <div>
-            <div class="estimation-content">
-
+            <form class="estimation-content">
               <div class="estimation-info">
                 <div class="query">
                   <h2 class="calc__head">Для подтвержения запроса на кредит укажите информацию о вас</h2>
-                  <form action="post">
-                    <div class="query-items">
+                  <div class="form">
+                    <div class="query-items" id="estimation-form">
                       <div class="query-item">
-                        <input type="text" placeholder="Фамилия" onfocus="placeholder='';" onblur="placeholder='Фамилия';" />
+                        <input type="text" placeholder="Фамилия" id="second_name" required />
                       </div>
                       <div class="query-item">
-                        <input type="text" placeholder="Паспорт" onfocus="placeholder='';" onblur="placeholder='Паспорт';" />
+                        <input type="text" placeholder="Имя" id="first_name" required />
                       </div>
                       <div class="query-item">
-                        <input type="text" placeholder="Имя" onfocus="placeholder='';" onblur="placeholder='Имя';" />
+                        <input type="text" placeholder="Отчество" id="middle_name" required />
                       </div>
                       <div class="query-item">
-                        <input type="text" placeholder="Дата выдачи" onfocus="placeholder='';" onblur="placeholder='Дата выдачи';" />
+                        <input type="text" placeholder="Дата рождения" id="dob" required />
+                      </div>
+
+                      <div class="query-item">
+                        <input type="text" placeholder="Серия и номер паспорта" id="passport" required />
                       </div>
                       <div class="query-item">
-                        <input type="text" placeholder="Отчество" onfocus="placeholder='';" onblur="placeholder='Отчество';" />
+                        <input type="text" placeholder="Дата выдачи" id="passport_date" required />
+                      </div>
+
+                      <div class="query-item">
+                        <input type="email" placeholder="Email" id="email" required />
                       </div>
                       <div class="query-item">
-                        <input type="text" placeholder="E-mail" onfocus="placeholder='';" onblur="placeholder='E-mail';" />
+                        <input type="text" placeholder="Телефон" id="phone_number" required />
                       </div>
-                      <div class="query-item">
-                        <input type="text" placeholder="Дата рождения" onfocus="placeholder='';" onblur="placeholder='Дата рождения';" />
-                      </div>
-                      <div class="query-item">
-                        <input type="text" placeholder="Телефон" onfocus="placeholder='';" onblur="placeholder='Телефон';" />
-                      </div>
+
+                      <input type="hidden" value="" id="alt_dob">
+                      <input type="hidden" value="" id="alt_passport_date">
                     </div>
+
                     <div class="form-check">
                       <div class="checkbox">
-                        <input type="checkbox" id="box2" checked="checked">
+                        <input type="checkbox" id="box2" checked="checked" required>
                         <span></span>
                       </div>
                       <label for="box2">Я согласен с условиями о хранении персональных данных</label>
                     </div>
-                  </form>
+                  </div>
                   <a href="#" class="estimation-info-button estimation-back">назад</a>
                 </div>
               </div>
@@ -173,11 +178,11 @@
                   3<span>документа</span>
                 </div>
                 <div class="estimation-sidebar-link">
-                  <a class="estimation-next" href="#">Подтвердить</a>
+                  <button type="submit" class="estimation-next" href="#" id="button-check-financial-health">Подтвердить</button>
                 </div>
               </div>
 
-            </div>
+            </form>
           </div>
 
           <div>
@@ -185,7 +190,7 @@
 
               <div class="estimation-info">
                 <div class="decision">
-                  <h2 class="calc__head">Ваша заявка одобрена на следующих условиях</h2>
+                  <h2 class="calc__head">Вы сформировали заявку на следующих условиях</h2>
                   <div class="decision-content">
                     <ul class="decision-content-item">
                       <li>сумма кредита:</li>

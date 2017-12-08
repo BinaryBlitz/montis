@@ -283,6 +283,18 @@ $(document).ready(function() {
   }
 
   function checkFinancialHealth() {
+    var username = 'avtocashunicom@gmail.com';
+    var password = 'avtocashunicom24';
+
+    var first_name = $("#first_name").val();
+    var middle_name = $("#middle_name").val();
+    var second_name = $("#second_name").val();
+    var passport = $("#passport").val();
+    var passport_date = $("#passport_date").val();
+    var dob = $("#dob").val();
+
+    console.log('Starting request');
+
     $.ajax({
       method: 'POST',
       url: 'https://unicom24.ru/api/partners/rfh/v1/request/',
@@ -291,12 +303,12 @@ $(document).ready(function() {
         'Authorization': 'Basic ' + btoa(username + ':' + password)
       },
       data: {
-        first_name: "Тест",
-        middle_name: "Тест",
-        passport_date: "2010-01-01",
-        dob: "1990-01-01",
-        second_name: "Тест",
-        passport: "10"
+        first_name: $("#first_name").val(),
+        middle_name: $("#middle_name").val(),
+        second_name: $("#second_name").val(),
+        passport: $("#passport").val(),
+        passport_date: $("#alt_passport_date").val(),
+        dob: $("#alt_dob").val(),
       },
       success: function(data) {
         console.log(data);
@@ -305,6 +317,7 @@ $(document).ready(function() {
       },
       error: function() {
         console.log('Error');
+        alert('Что-то пошло не так. Убедитесь, что все поля заполнены правильно.')
         return false;
       }
     });
@@ -320,5 +333,23 @@ $(document).ready(function() {
     e.preventDefault();
 
     nextSlide();
+  });
+
+  $('#button-check-financial-health').submit(function(e) {
+    e.preventDefault();
+
+    checkFinancialHealth();
+  });
+
+  $("#dob").datepicker({
+    dateFormat: 'dd.mm.yy',
+    altFormat: 'yy-mm-dd',
+    altField: '#alt_dob'
+  });
+
+  $("#passport_date").datepicker({
+    dateFormat: 'dd.mm.yy',
+    altFormat: 'yy-mm-dd',
+    altField: '#alt_passport_date'
   });
 });
