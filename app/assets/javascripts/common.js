@@ -77,9 +77,13 @@ $(document).ready(function() {
     step: 1000,
     slide: function(event, ui) {
       $(".mark-sum-amount").html(ui.value);
+      $("#decision-content-amount").html(ui.value);
 
       var months = parseInt($(".mark-term-amount").html());
-      $("#mark-info-monthly-payment").html(monthlyPayment(parseInt(ui.value), months));
+
+      var payment = monthlyPayment(parseInt(ui.value), months);
+      $("#mark-info-monthly-payment").html(payment);
+      $("#decision-content-monthly-payment").html(payment);
     }
   });
 
@@ -93,9 +97,13 @@ $(document).ready(function() {
     slide: function(event, ui) {
       $(".mark-term-amount").html(ui.value);
       $("#mark-info-term").html(ui.value);
+      $("#decision-content-term").html(ui.value);
 
       var amount = parseInt($(".mark-sum-amount").html());
-      $("#mark-info-monthly-payment").html(monthlyPayment(amount, parseInt(ui.value)));
+
+      var payment = monthlyPayment(amount, parseInt(ui.value));
+      $("#mark-info-monthly-payment").html(payment);
+      $("#decision-content-monthly-payment").html(payment);
     }
   });
 
