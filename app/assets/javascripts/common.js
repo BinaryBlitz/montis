@@ -34,7 +34,7 @@ $(document).ready(function() {
 
   function monthlyPayment(amount, months) {
     var monthlyRate = 0.06;
-    var result = (amount * monthlyRate * 6 + amount) / months;
+    var result = amount * monthlyRate / (1 - 1 / Math.pow(1 + monthlyRate, months))
     return parseInt(result);
   }
 
