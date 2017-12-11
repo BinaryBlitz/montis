@@ -1,0 +1,24 @@
+<h1>Обратные звонки</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>№</th>
+      <th>Имя</th>
+      <th>Телефон</th>
+      <th>Дата</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @callback_requests.each do |callback_request| %>
+      <tr>
+        <td><%= callback_request.id %></td>
+        <td><%= callback_request.name %></td>
+        <td><%= callback_request.phone_number %></td>
+        <td><%= callback_request.created_at %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
