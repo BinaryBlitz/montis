@@ -56,7 +56,7 @@ $(document).ready(function() {
 
   $(".slider-term").slider({
     range: "min",
-    min: 0,
+    min: 2,
     max: 12,
     value: 9,
     slide: function(event, ui) {
@@ -91,7 +91,7 @@ $(document).ready(function() {
 
   $(".mark-term").slider({
     range: "min",
-    min: 1,
+    min: 2,
     max: 24,
     value: 12,
     slide: function(event, ui) {
@@ -344,17 +344,5 @@ $(document).ready(function() {
     e.preventDefault();
 
     checkFinancialHealth();
-  });
-
-  $("#dob").datepicker({
-    dateFormat: 'dd.mm.yy',
-    altFormat: 'yy-mm-dd',
-    altField: '#alt_dob'
-  });
-
-  $("#passport_date").datepicker({
-    dateFormat: 'dd.mm.yy',
-    altFormat: 'yy-mm-dd',
-    altField: '#alt_passport_date'
   });
 });
