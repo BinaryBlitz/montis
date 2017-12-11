@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   scope controller: :pages do
     get 'about', 'conditions', 'estimation', 'contacts', 'question', 'reviews'
   end
+
+  namespace :admin do
+    resources :callback_requests
+  end
 end

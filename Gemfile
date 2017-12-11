@@ -34,6 +34,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-fancybox', '~> 3.2'
   gem 'rails-assets-select2', '~> 4.0'
   gem 'rails-assets-slick-carousel', '~> 1.8'
+  gem 'rails-assets-bootstrap', '~> 4.0.beta'
 end
 
 group :development, :test do
