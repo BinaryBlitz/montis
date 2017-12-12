@@ -16,8 +16,8 @@
         <td><%= callback_request.id %></td>
         <td><%= callback_request.name %></td>
         <td><%= callback_request.phone_number %></td>
-        <td><%= callback_request.created_at %></td>
-        <td></td>
+        <td><%= callback_request.created_at.to_s(:long) %></td>
+        <td><%#= link_to 'Посмотреть', [:admin, callback_request], class: 'btn btn-sm btn-primary' %></td>
       </tr>
     <% end %>
   </tbody>
