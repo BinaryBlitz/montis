@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   end
 
   resources :callback_requests
+  resources :loans
 end

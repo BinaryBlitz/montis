@@ -46,6 +46,8 @@ $(document).ready(function() {
     value: 150000,
     slide: function(event, ui) {
       $(".calc-sum-amount").html(ui.value);
+      // Set hidden field value
+      $(".calc #new_loan #loan_amount").val(ui.value);
 
       var months = parseInt($(".calc-term-amount").html());
       $("#calc-monthly-payment").html(monthlyPayment(parseInt(ui.value), months));
@@ -61,6 +63,8 @@ $(document).ready(function() {
     value: 9,
     slide: function(event, ui) {
       $(".calc-term-amount").html(ui.value);
+      // Set hidden field value
+      $(".calc #new_loan #loan_term").val(ui.value);
 
       var amount = parseInt($(".calc-sum-amount").html());
       $("#calc-monthly-payment").html(monthlyPayment(amount, parseInt(ui.value)));
