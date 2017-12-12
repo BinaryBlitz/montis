@@ -16,4 +16,4 @@
 //= require fancybox
 //= require slick-carousel
 //= require select2
-//= require_tree .
+//= require common
