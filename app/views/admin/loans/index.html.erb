@@ -1,0 +1,28 @@
+<h1>Заявки</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>№</th>
+      <th>Сумма</th>
+      <th>Срок</th>
+      <th>Имя</th>
+      <th>Телефон</th>
+      <th>Дата</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @loans.each do |loan| %>
+      <tr>
+        <td><%= loan.id %></td>
+        <td><%= loan.amount %></td>
+        <td><%= loan.term %></td>
+        <td><%= loan.first_name %></td>
+        <td><%= loan.phone_number %></td>
+        <td><%= loan.created_at.to_s(:long) %></td>
+        <td><%= link_to 'Посмотреть', [:admin, loan], class: 'btn btn-sm btn-primary' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
