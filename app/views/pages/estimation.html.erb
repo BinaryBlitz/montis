@@ -13,219 +13,223 @@
           <li><a href="#">Ваши данные</a></li>
           <li><a href="#">Получение решения</a></li>
         </ul>
-        <div class="estimation-carousel">
-          <div>
-            <div class="estimation-content">
-
-              <div class="estimation-info">
-                <div class="calc">
-                  <h2 class="calc__head">Для расчета кредита, укажите <span>государственный</span><br> или <span>vin</span> номер вашего автомобиля:</h2>
-                  <form action="posr">
-                    <div class="calc-input">
-                      <input type="text" placeholder="vin автомобиля" id="vin" />
-                    </div>
-                    <!-- <div class="calc-check">
-                      <div class="calc-check-img">
-                        <%= image_tag "calc-check-img.jpg" %>
+        <%= form_for Loan.new do |f| %>
+          <div class="estimation-carousel">
+            <div>
+              <div class="estimation-content">
+                <div class="estimation-info">
+                  <div class="calc">
+                    <h2 class="calc__head">Для расчета кредита, укажите <span>государственный</span><br> или <span>vin</span> номер вашего автомобиля:</h2>
+                    <div>
+                      <div class="calc-input">
+                        <%= f.text_field :car_vin, placeholder: 'VIN автомобиля' %>
                       </div>
-                      <div class="calc-check-input">
-                        <input type="text" placeholder="Введите символы" onfocus="placeholder='';" onblur="placeholder='Введите символы';" />
-                      </div>
-                    </div> -->
-                    <div class="calc__text">Представленная информация не является публичной офертой</div>
-                  </form>
-                </div>
-              </div>
-
-              <div class="estimation-sidebar">
-                <div class="estimation-sidebar-img">
-                  <%= image_tag "ic-like-red.svg" %>
-                </div>
-                <div class="estimation-sidebar__text">ВЫСОКИЙ ПРОЦЕНТ<br> ОДОБРЕНИЯ ЗАЯВКИ</div>
-                <div class="estimation-sidebar-number">
-                  89<span>%</span>
-                </div>
-                <div class="estimation-sidebar-link">
-                  <a class="estimation-next" href="#" id="button-estimate-auto">Узнать размер кредита</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div class="estimation-content">
-              <div class="estimation-info">
-                <div class="query">
-                  <h2 class="calc__head">Сумма предварительно одобренного кредита <span><span class="preliminary-amount">500000</span> <i>₽</i></span></h2>
-                  <form action="post" class="mark">
-
-                    <div class="mark-item">
-                      <span class="selected-amount">сумма:</span>
-                      <p>
-                        <i class="mark-sum-amount"></i>
-                        <b>₽</b>
-                      </p>
-                      <div class="mark-from">
-                        <div>5000 <i>₽</i></div>
-                        <div><span class="preliminary-amount">500000</span> <i>₽</i></div>
-                      </div>
-                      <div class="mark-slider mark-sum"></div>
-                    </div>
-                    <div class="mark-item">
-                      <span>срок:</span>
-                      <p>
-                        <i class="mark-term-amount">12</i>
-                        <b>мес.</b>
-                      </p>
-                      <div class="mark-from">
-                        <div>1 <i>месяц</i></div>
-                        <div>24 <i>месяц</i></div>
-                      </div>
-                      <div class="mark-slider mark-term"></div>
-                    </div>
-
-                    <div class="mark-info">
-                      <div class="mark-info-item">
-                        <p>срок займа</p>
-                        <div class="mark-info-number"><span id="mark-info-term">12</span><span class="unit"> месяцев</span></div>
-                      </div>
-                      <div class="mark-info-item">
-                        <p>ежемесячный платеж</p>
-                        <div class="mark-info-number"><span id="mark-info-monthly-payment">50000</span><span class="unit"> ₽</span></div>
-                      </div>
-                      <div class="mark-info-item">
-                        &nbsp;
-                      </div>
-                    </div>
-
-                  </form>
-                  <a href="#" class="estimation-info-button estimation-back">назад</a>
-                </div>
-              </div>
-
-              <div class="estimation-sidebar query">
-                <div class="estimation-sidebar-img">
-                  <%= image_tag "ic-like-red.svg" %>
-                </div>
-                <div class="estimation-sidebar__text">ВЫСОКИЙ ПРОЦЕНТ<br> ОДОБРЕНИЯ ЗАЯВКИ</div>
-                <div class="estimation-sidebar-number">
-                  89<span>%</span>
-                </div>
-                <div class="estimation-sidebar-link">
-                  <a class="estimation-next" href="#" id="button-next-step">Оформить кредит</a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-          <div>
-            <form class="estimation-content">
-              <div class="estimation-info">
-                <div class="query">
-                  <h2 class="calc__head">Для подтвержения запроса на кредит укажите информацию о вас</h2>
-                  <div class="form">
-                    <div class="query-items" id="estimation-form">
-                      <div class="query-item">
-                        <input type="text" placeholder="Фамилия" id="second_name" required />
-                      </div>
-                      <div class="query-item">
-                        <input type="text" placeholder="Имя" id="first_name" required />
-                      </div>
-                      <div class="query-item">
-                        <input type="text" placeholder="Отчество" id="middle_name" required />
-                      </div>
-                      <div class="query-item">
-                        <input type="text" placeholder="Дата рождения" id="dob" required />
-                      </div>
-
-                      <div class="query-item">
-                        <input type="text" placeholder="Серия и номер паспорта" id="passport" required />
-                      </div>
-                      <div class="query-item">
-                        <input type="text" placeholder="Дата выдачи" id="passport_date" required />
-                      </div>
-
-                      <div class="query-item">
-                        <input type="email" placeholder="Email" id="email" required />
-                      </div>
-                      <div class="query-item">
-                        <input type="text" placeholder="Телефон" id="phone_number" required />
-                      </div>
-                    </div>
-
-                    <div class="form-check">
-                      <div class="checkbox">
-                        <input type="checkbox" id="box2" checked="checked" required>
-                        <span></span>
-                      </div>
-                      <label for="box2">Я согласен с условиями о хранении персональных данных</label>
+                      <!-- <div class="calc-check">
+                        <div class="calc-check-img">
+                          <%= image_tag "calc-check-img.jpg" %>
+                        </div>
+                        <div class="calc-check-input">
+                          <input type="text" placeholder="Введите символы" onfocus="placeholder='';" onblur="placeholder='Введите символы';" />
+                        </div>
+                      </div> -->
+                      <div class="calc__text">Представленная информация не является публичной офертой</div>
                     </div>
                   </div>
-                  <a href="#" class="estimation-info-button estimation-back">назад</a>
                 </div>
-              </div>
 
-              <div class="estimation-sidebar query">
-                <div class="estimation-sidebar-img">
-                  <%= image_tag "ic-diamond-red.svg" %>
-                </div>
-                <div class="estimation-sidebar__text">МИНИМУМ УСИЛИЙ</div>
-                <div class="estimation-sidebar-number">
-                  3<span>документа</span>
-                </div>
-                <div class="estimation-sidebar-link">
-                  <button type="submit" class="estimation-next" href="#" id="button-check-financial-health">Подтвердить</button>
-                </div>
-              </div>
-
-            </form>
-          </div>
-
-          <div>
-            <div class="estimation-content">
-
-              <div class="estimation-info">
-                <div class="decision">
-                  <h2 class="calc__head">Вы сформировали заявку на следующих условиях</h2>
-                  <div class="decision-content">
-                    <ul class="decision-content-item">
-                      <li>сумма кредита:</li>
-                      <li><span id="decision-content-amount">500000</span> <i>₽</i></li>
-                    </ul>
-                    <ul class="decision-content-item">
-                      <li>срок кредита:</li>
-                      <li><span id="decision-content-term">12</span> <span.unit>месяцев</span></li>
-                    </ul>
-                    <ul class="decision-content-item">
-                      <li>ставка:</li>
-                      <li>6% <span.unit>в месяц</span></li>
-                    </ul>
-                    <ul class="decision-content-item">
-                      <li>ежемесячный платеж:</li>
-                      <li><span id="decision-content-monthly-payment">50000</span> <i>₽</i></li>
-                    </ul>
+                <div class="estimation-sidebar">
+                  <div class="estimation-sidebar-img">
+                    <%= image_tag "ic-like-red.svg" %>
                   </div>
-                  <a href="#modal" data-fancybox class="estimation-info-button">график платежей</a>
+                  <div class="estimation-sidebar__text">ВЫСОКИЙ ПРОЦЕНТ<br> ОДОБРЕНИЯ ЗАЯВКИ</div>
+                  <div class="estimation-sidebar-number">
+                    89<span>%</span>
+                  </div>
+                  <div class="estimation-sidebar-link">
+                    <a class="estimation-next" href="#" id="button-estimate-auto">Узнать размер кредита</a>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              <div class="estimation-sidebar decision">
-                <div class="estimation-sidebar-img">
-                  <%= image_tag "ic-stopwatch-red.svg" %>
+            <div>
+              <div class="estimation-content">
+                <div class="estimation-info">
+                  <div class="query">
+                    <h2 class="calc__head">Сумма предварительно одобренного кредита <span><span class="preliminary-amount">500000</span> <i>₽</i></span></h2>
+                    <div class="mark">
+
+                      <div class="mark-item">
+                        <span class="selected-amount">сумма:</span>
+                        <p>
+                          <i class="mark-sum-amount"></i>
+                          <b>₽</b>
+                        </p>
+                        <div class="mark-from">
+                          <div>5000 <i>₽</i></div>
+                          <div><span class="preliminary-amount">500000</span> <i>₽</i></div>
+                        </div>
+                        <div class="mark-slider mark-sum"></div>
+                      </div>
+                      <%= f.hidden_field :amount, value: 500000 %>
+
+                      <div class="mark-item">
+                        <span>срок:</span>
+                        <p>
+                          <i class="mark-term-amount">12</i>
+                          <b>мес.</b>
+                        </p>
+                        <div class="mark-from">
+                          <div>1 <i>месяц</i></div>
+                          <div>24 <i>месяц</i></div>
+                        </div>
+                        <div class="mark-slider mark-term"></div>
+                      </div>
+                      <%= f.hidden_field :term, value: 12 %>
+
+                      <div class="mark-info">
+                        <div class="mark-info-item">
+                          <p>срок займа</p>
+                          <div class="mark-info-number"><span id="mark-info-term">12</span><span class="unit"> месяцев</span></div>
+                        </div>
+                        <div class="mark-info-item">
+                          <p>ежемесячный платеж</p>
+                          <div class="mark-info-number"><span id="mark-info-monthly-payment"></span><span class="unit"> ₽</span></div>
+                        </div>
+                        <div class="mark-info-item">
+                          &nbsp;
+                        </div>
+                      </div>
+
+                    </div>
+                    <a href="#" class="estimation-info-button estimation-back">назад</a>
+                  </div>
                 </div>
-                <div class="estimation-sidebar__text">РАССМОТРЕНИЕ ЗАЯВКИ</div>
-                <div class="estimation-sidebar-number">
-                  ОНЛАЙН
+
+                <div class="estimation-sidebar query">
+                  <div class="estimation-sidebar-img">
+                    <%= image_tag "ic-like-red.svg" %>
+                  </div>
+                  <div class="estimation-sidebar__text">ВЫСОКИЙ ПРОЦЕНТ<br> ОДОБРЕНИЯ ЗАЯВКИ</div>
+                  <div class="estimation-sidebar-number">
+                    89<span>%</span>
+                  </div>
+                  <div class="estimation-sidebar-link">
+                    <a class="estimation-next" href="#" id="button-next-step">Оформить кредит</a>
+                  </div>
                 </div>
-                <div class="estimation-sidebar-link">
-                  <a href="#">Подтвердить</a>
+
+              </div>
+            </div>
+
+            <div>
+              <div class="estimation-content">
+                <div class="estimation-info">
+                  <div class="query">
+                    <h2 class="calc__head">Для подтвержения запроса на кредит укажите информацию о вас</h2>
+                    <div class="form">
+                      <div class="query-items" id="estimation-form">
+                        <div class="query-item">
+                          <%= f.text_field :last_name, placeholder: 'Фамилия', required: true %>
+                        </div>
+                        <div class="query-item">
+                          <%= f.text_field :first_name, placeholder: 'Имя', required: true %>
+                        </div>
+                        <div class="query-item">
+                          <%= f.text_field :patronymic_name, placeholder: 'Отчество', required: true %>
+                        </div>
+                        <div class="query-item">
+                          <%= f.date_field :birthdate, placeholder: 'Дата рождения', required: true %>
+                        </div>
+
+                        <div class="query-item">
+                          <%= f.text_field :passport_number, placeholder: 'Серия и номер паспорта', required: true %>
+                        </div>
+                        <div class="query-item">
+                          <%= f.date_field :passport_date, placeholder: 'Дата выдачи', required: true %>
+                        </div>
+
+                        <div class="query-item">
+                          <%= f.email_field :email, placeholder: 'Email', required: true %>
+                        </div>
+                        <div class="query-item">
+                          <%= f.text_field :phone_number, placeholder: 'Телефон', required: true %>
+                        </div>
+                      </div>
+
+                      <div class="form-check">
+                        <div class="checkbox">
+                          <input type="checkbox" id="box2" required>
+                          <span></span>
+                        </div>
+                        <label for="box2">Я согласен с условиями о хранении персональных данных</label>
+                      </div>
+                    </div>
+                    <a href="#" class="estimation-info-button estimation-back">назад</a>
+                  </div>
+                </div>
+
+                <div class="estimation-sidebar query">
+                  <div class="estimation-sidebar-img">
+                    <%= image_tag "ic-diamond-red.svg" %>
+                  </div>
+                  <div class="estimation-sidebar__text">МИНИМУМ УСИЛИЙ</div>
+                  <div class="estimation-sidebar-number">
+                    3<span>документа</span>
+                  </div>
+                  <div class="estimation-sidebar-link">
+                    <button type="submit" class="estimation-next" href="#" id="button-check-financial-health">Подтвердить</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div>
+              <div class="estimation-content">
+
+                <div class="estimation-info">
+                  <div class="decision">
+                    <h2 class="calc__head">Вы сформировали заявку на следующих условиях</h2>
+                    <div class="decision-content">
+                      <ul class="decision-content-item">
+                        <li>сумма кредита:</li>
+                        <li><span id="decision-content-amount">500000</span> <i>₽</i></li>
+                      </ul>
+                      <ul class="decision-content-item">
+                        <li>срок кредита:</li>
+                        <li><span id="decision-content-term">12</span> <span.unit>месяцев</span></li>
+                      </ul>
+                      <ul class="decision-content-item">
+                        <li>ставка:</li>
+                        <li>6% <span.unit>в месяц</span></li>
+                      </ul>
+                      <ul class="decision-content-item">
+                        <li>ежемесячный платеж:</li>
+                        <li><span id="decision-content-monthly-payment">50000</span> <i>₽</i></li>
+                      </ul>
+                    </div>
+                    <a href="#modal" data-fancybox class="estimation-info-button">график платежей</a>
+                  </div>
+                </div>
+
+                <div class="estimation-sidebar decision">
+                  <div class="estimation-sidebar-img">
+                    <%= image_tag "ic-stopwatch-red.svg" %>
+                  </div>
+                  <div class="estimation-sidebar__text">РАССМОТРЕНИЕ ЗАЯВКИ</div>
+                  <div class="estimation-sidebar-number">
+                    ОНЛАЙН
+                  </div>
+                  <div class="estimation-sidebar-link">
+                    <%= f.submit data: { disable_with: false } %>
+                    <a href="#">Подтвердить</a>
+                  </div>
                 </div>
               </div>
-
             </div>
           </div>
-
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

@@ -43,7 +43,7 @@ $(document).ready(function() {
     min: 0,
     max: 1500000,
     step: 1000,
-    value: 150000,
+    value: 500000,
     slide: function(event, ui) {
       $(".calc-sum-amount").html(ui.value);
       // Set hidden field value
@@ -59,8 +59,8 @@ $(document).ready(function() {
   $(".slider-term").slider({
     range: "min",
     min: 2,
-    max: 12,
-    value: 9,
+    max: 24,
+    value: 12,
     slide: function(event, ui) {
       $(".calc-term-amount").html(ui.value);
       // Set hidden field value
@@ -76,12 +76,14 @@ $(document).ready(function() {
   $(".mark-sum").slider({
     range: "min",
     min: 5000,
-    max: 500000,
-    value: 50000,
+    max: 1500000,
+    value: 500000,
     step: 1000,
     slide: function(event, ui) {
       $(".mark-sum-amount").html(ui.value);
       $("#decision-content-amount").html(ui.value);
+      // Set hidden field value
+      $(".estimation #new_loan #loan_amount").val(ui.value);
 
       var months = parseInt($(".mark-term-amount").html());
 
@@ -102,6 +104,8 @@ $(document).ready(function() {
       $(".mark-term-amount").html(ui.value);
       $("#mark-info-term").html(ui.value);
       $("#decision-content-term").html(ui.value);
+      // Set hidden field value
+      $(".estimation #new_loan #loan_term").val(ui.value);
 
       var amount = parseInt($(".mark-sum-amount").html());
 
@@ -260,7 +264,7 @@ $(document).ready(function() {
     var username = 'avtocashunicom@gmail.com';
     var password = 'avtocashunicom24';
 
-    var vin = $('#vin').val();
+    var vin = $('#loan_car_vin').val();
 
     $.ajax({
       method: 'POST',
@@ -281,6 +285,8 @@ $(document).ready(function() {
         $(".mark-sum").slider('option', 'max', amount);
         $(".preliminary-amount").html(amount);
 
+        $(".estimation #new_loan").data("auto-checked", "true");
+
         nextSlide();
         return true;
       },
@@ -295,12 +301,12 @@ $(document).ready(function() {
     var username = 'avtocashunicom@gmail.com';
     var password = 'avtocashunicom24';
 
-    var first_name = $("#first_name").val();
-    var middle_name = $("#middle_name").val();
-    var second_name = $("#second_name").val();
-    var passport = $("#passport").val();
-    var passport_date = $("#passport_date").val();
-    var dob = $("#dob").val();
+    var first_name = $(".estimation #loan_first_name").val();
+    var middle_name = $(".estimation #loan_patronymic_name").val();
+    var second_name = $(".estimation #loan_last_name").val();
+    var passport = $(".estimation #loan_passport_number").val();
+    var passport_date = $(".estimation #loan_passport_date").val();
+    var dob = $(".estimation #loan_birthdate").val();
 
     console.log('Starting request');
 
@@ -312,21 +318,23 @@ $(document).ready(function() {
         'Authorization': 'Basic ' + btoa(username + ':' + password)
       },
       data: {
-        first_name: $("#first_name").val(),
-        middle_name: $("#middle_name").val(),
-        second_name: $("#second_name").val(),
-        passport: $("#passport").val(),
-        passport_date: $("#alt_passport_date").val(),
-        dob: $("#alt_dob").val(),
+        "first_name": first_name,
+        "middle_name": middle_name,
+        "second_name": second_name,
+        "passport": passport,
+        "passport_date": passport_date,
+        "dob": dob,
       },
       success: function(data) {
         console.log(data);
+        $(".estimation #new_loan").data("financial-health-checked", "true");
+
         nextSlide();
         return true;
       },
       error: function() {
         console.log('Error');
-        alert('Что-то пошло не так. Убедитесь, что все поля заполнены правильно.')
+        alert('Что-то пошло не так. Убедитесь, что все поля заполнены правильно.');
         return false;
       }
     });
@@ -344,9 +352,12 @@ $(document).ready(function() {
     nextSlide();
   });
 
-  $('#button-check-financial-health').submit(function(e) {
-    e.preventDefault();
+  $('.estimation #new_loan').submit(function(e) {
+    if ($(".estimation #new_loan").data("financial-health-checked") == "true") {
+      return true;
+    }
 
+    e.preventDefault();
     checkFinancialHealth();
   });
 });
