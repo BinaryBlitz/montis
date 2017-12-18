@@ -211,19 +211,6 @@ $(document).ready(function() {
     touchMove: false
   });
 
-  $(".estimation-nav li").click(function() {
-    var current = $(this).index();
-
-    $(".estimation-nav li").removeClass("active");
-    $(this).addClass("active");
-
-    estimation_completed(current);
-
-    $(".estimation-carousel").slick("slickGoTo", current);
-
-    return false;
-  });
-
   function estimation_completed(current) {
     $(".estimation-nav li").each(function() {
       if ($(this).index() < current) {
