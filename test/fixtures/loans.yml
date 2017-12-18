@@ -1,0 +1,14 @@
+loan:
+  amount: 50000
+  term: 12
+  car_model: Tesla
+  car_year: 2017
+  car_vin: ""
+  first_name: Foo
+  last_name: Bar
+  patronymic_name: Qux
+  birthdate: 1970-01-01
+  passport_number: "4500 000000"
+  passport_date: 2000-01-01
+  email: foo@bar.com
+  phone_number: +79991112233

@@ -4,6 +4,7 @@ class LoansController < ApplicationController
 
     if @loan.save
       redirect_to root_path, notice: 'Мы с вами свяжемся в ближайшее время'
+      LoanMailer.new_loan(@loan).deliver_later
     else
       redirect_to root_path, alert: 'Что-то пошло не так'
     end
