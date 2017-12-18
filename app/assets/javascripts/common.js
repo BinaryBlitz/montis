@@ -251,7 +251,14 @@ $(document).ready(function() {
     var username = 'avtocashunicom@gmail.com';
     var password = 'avtocashunicom24';
 
-    var vin = $('#loan_car_vin').val();
+    var vin_or_number = $('#loan_car_vin').val();
+    var data;
+
+    if (vin_or_number.length > 10) {
+      data = { vin: vin_or_number };
+    } else {
+      data = { grz: vin_or_number };
+    }
 
     $.ajax({
       method: 'POST',
@@ -260,12 +267,12 @@ $(document).ready(function() {
       headers: {
         'Authorization': 'Basic ' + btoa(username + ':' + password)
       },
-      data: {
-        vin: vin
-      },
+      data: data,
       success: function(data) {
         var carPriceResponse = data.response.car_price;
         var amount = carPriceResponse.items[0].amount;
+
+        console.log(carPriceResponse);
         console.log(amount);
 
         $(".mark-sum").data('amount', amount);
