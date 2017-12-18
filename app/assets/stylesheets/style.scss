@@ -327,7 +327,7 @@ a img {
         }
         &-link {
           text-align: center;
-          a {
+          input {
             width: 100%;
             text-transform: uppercase;
             background: #fc447c;
@@ -336,6 +336,9 @@ a img {
             letter-spacing: 1px;
             color: #fff;
             line-height: 2.8rem;
+            border: none;
+            cursor: pointer;
+            transition: 300ms;
             &:hover {
               background: #c03b63;
             }
@@ -432,7 +435,7 @@ a img {
         }
         &-link {
           text-align: center;
-          a {
+          input {
             width: 100%;
             font-size: 0.8rem;
             font-weight: bold;
@@ -441,6 +444,9 @@ a img {
             border: 0.12rem solid #fff;
             text-transform: uppercase;
             line-height: 2.55rem;
+            cursor: pointer;
+            transition: 300ms;
+            background: none;
             &:hover {
               background: #fff;
               color: rgba(88, 91, 211, 0.8);
