@@ -13,6 +13,9 @@
 //= require rails-ujs
 //= require jquery
 //= require jquery-ui
+//= require inputmask/inputmask
+//= require inputmask/inputmask.date.extensions
+//= require inputmask/jquery.inputmask
 //= require fancybox
 //= require slick-carousel
 //= require select2

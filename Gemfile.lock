@@ -106,6 +106,8 @@ GEM
       rails-assets-popper.js (>= 1.11.0, < 2)
     rails-assets-fancybox (3.2.5)
       rails-assets-jquery (>= 1.9.0)
+    rails-assets-inputmask (3.3.11)
+      rails-assets-jquery (>= 1.7)
     rails-assets-jquery (3.2.1)
     rails-assets-jquery-ui (1.12.1)
       rails-assets-jquery (>= 1.6)
@@ -187,6 +189,7 @@ DEPENDENCIES
   rails (~> 5.1.4)
   rails-assets-bootstrap (~> 4.0.beta)!
   rails-assets-fancybox (~> 3.2)!
+  rails-assets-inputmask (~> 3.3)!
   rails-assets-jquery (~> 3.2)!
   rails-assets-jquery-ui (~> 1.12)!
   rails-assets-select2 (~> 4.0)!

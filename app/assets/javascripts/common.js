@@ -299,8 +299,12 @@ $(document).ready(function() {
     var middle_name = $(".estimation #loan_patronymic_name").val();
     var second_name = $(".estimation #loan_last_name").val();
     var passport = $(".estimation #loan_passport_number").val();
-    var passport_date = $(".estimation #loan_passport_date").val();
-    var dob = $(".estimation #loan_birthdate").val();
+
+    var input_passport_date = $(".estimation #loan_passport_date").val();
+    var passport_date = input_passport_date.split('.').reverse().join('-');
+
+    var input_dob = $(".estimation #loan_birthdate").val()
+    var dob = input_dob.split('.').reverse().join('-');
 
     console.log('Starting request');
 
@@ -354,4 +358,7 @@ $(document).ready(function() {
     e.preventDefault();
     checkFinancialHealth();
   });
+
+  $('#loan_birthdate').inputmask('dd.mm.yyyy');
+  $('#loan_passport_date').inputmask('dd.mm.yyyy');
 });

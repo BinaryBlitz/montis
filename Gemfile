@@ -35,6 +35,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-select2', '~> 4.0'
   gem 'rails-assets-slick-carousel', '~> 1.8'
   gem 'rails-assets-bootstrap', '~> 4.0.beta'
+  gem 'rails-assets-inputmask', '~> 3.3'
 end
 
 group :development, :test do
