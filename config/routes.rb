@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    get '/', to: 'loans#index'
+
     resources :callback_requests
     resources :loans
   end
