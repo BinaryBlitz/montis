@@ -275,6 +275,12 @@ $(document).ready(function() {
         console.log(carPriceResponse);
         console.log(amount);
 
+        amount = amount * 0.7;
+
+        if (amount > 1500000) {
+          amount = 1500000;
+        }
+
         $(".mark-sum").data('amount', amount);
         $(".mark-sum").slider('option', 'max', amount);
         $(".preliminary-amount").html(amount);
