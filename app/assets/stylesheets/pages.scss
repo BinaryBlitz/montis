@@ -909,3 +909,233 @@
     }
   }
 }
+
+#sign-in-modal  {
+  min-width: 100%;
+  margin: 0;
+  .fancybox-close-small {
+    display: none;
+  }
+  display: none;
+}
+
+#sign-up-modal {
+  min-width: 100%;
+  margin: 0;
+  .fancybox-close-small {
+    display: none;
+  }
+  display: none;
+}
+
+.login {
+  margin: 15px;
+  width: 380px;
+  max-width: 100%;
+  &-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  &-head {
+    color: #323845;
+    font-size: 1.75rem;
+    text-transform: uppercase;
+    letter-spacing: .1px;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+  &-input {
+    margin-bottom: 1.25rem;
+    input {
+      height: 36px;
+      background-color: #ffffff;
+      border: solid 1px #dfe3e9;
+      width: 100%;
+      padding: 0 .7rem;
+      font-family: inherit;
+      font-size: .90rem;
+    }
+  }
+  &-password {
+    text-align: right;
+    margin-bottom: 2.5rem;
+    a {
+      color: #7f8fa4;
+      font-size: .95rem;
+      &:hover {
+        color: #fc447c;
+      }
+    }
+  }
+  &-submit {
+    margin-bottom: 1.25rem;
+    input {
+      width: 100%;
+      -webkit-appearance: none;
+      background: #fc447c;
+      border: none;
+      cursor: pointer;
+      transition: 300ms;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: .9rem;
+      padding: .95rem 0;
+      &:hover {
+        background: #e34072;
+      }
+    }
+  }
+  &-news {
+    margin-bottom: 2rem;
+  }
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  .text {
+    color: #354052;
+    font-size: .9rem;
+    text-align: left;
+  }
+}
+
+.link {
+  width: 100%;
+  max-width: 380px;
+  border: solid 1px #dfe3e9;
+  color: #7f8fa4;
+  font-size: .9rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+  background: none;
+  padding: .95rem 0;
+  cursor: pointer;
+  transition: 300ms;
+  &:hover {
+    border-color: #bcbec1;
+  }
+}
+
+.custom-checkbox {
+  flex-shrink: 0;
+  width: 2.1rem;
+  height: 1.25rem;
+  position: relative;
+  cursor: pointer;
+  margin-right: .9rem;
+  span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #dfe3e9;
+    border-radius: 1000px;
+    z-index: 4;
+    transition: 300ms;
+    &:before {
+      content: '';
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      background: #fff;
+      position: absolute;
+      left: .125rem;
+      top: .125rem;
+      border-radius: 50%;
+      transition: 300ms;
+    }
+  }
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 5;
+    cursor: pointer;
+    &:checked {
+      + span {
+        background: #585bd3;
+        &:before {
+          left: 100%;
+          margin-left: -1.12rem;
+        }
+      }
+    }
+  }
+}
+
+/* My account */
+
+.my-account {
+  display: flex;
+  &_header {
+    .header {
+      margin-bottom: 2.333rem;
+      box-shadow: inset 0 -1px 0 0 #dfe3e9;
+      &-cabinet {
+        padding-left: 2.2rem;
+        span {
+          letter-spacing: 0.4px;
+          font-size: 0.75rem;
+          color: #585bd3;
+        }
+      }
+    }
+    .nav {
+      li {
+        margin: 0 1.52rem 0 0;
+        &:last-child {
+          margin-right: 0;
+        }
+        a {
+          letter-spacing: 0;
+          font-size: 0.75rem;
+        }
+      }
+    }
+  }
+  &-content {
+    flex-grow: 10;
+    padding-left: 7rem;
+  }
+}
+
+/* My account sidebar */
+
+.my-account-sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  ul {
+    margin-bottom: 3.9rem;
+    li {
+      margin-bottom: 2.75rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      a {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #7f8fa4;
+        &:hover {
+          color: #585bd3;
+        }
+      }
+      &.active {
+        a {
+          color: #585bd3;
+        }
+      }
+    }
+  }
+}
