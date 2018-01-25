@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'devise'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery', '~> 3.2'
   gem 'rails-assets-jquery-ui', '~> 1.12'
