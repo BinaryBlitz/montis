@@ -275,9 +275,6 @@ $(document).ready(function() {
         var model = car.model.name;
         var year = car.year;
 
-        console.log(carPriceResponse);
-        console.log(amount);
-
         amount = amount * 0.7;
 
         if (amount > 1500000) {
