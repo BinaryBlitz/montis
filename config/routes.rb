@@ -16,5 +16,4 @@ Rails.application.routes.draw do
 
   resources :callback_requests
   resources :loans
-  resources :users, only: [:show, :create]
 end
