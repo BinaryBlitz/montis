@@ -26,10 +26,21 @@
               <li>
                 <%= link_to 'Контакты', contacts_path %>
               </li>
-              <!-- <li>
-                <a class="header-cabinet" href="#">
-                  <%#= image_tag "ic-myoffice-inactiv.png" %> <span>Мой кабинет</span></a>
-              </li> -->
+              <li>
+                <% if user_signed_in? && current_page?(profile_path) %>
+                  <%= link_to destroy_user_session_path, method: :delete, class: 'header-cabinet' do %>
+                    <%= image_tag "ic-myoffice-inactiv.png" %> <span>Выйти</span>
+                  <% end %>
+                <% elsif user_signed_in? %>
+                  <%= link_to profile_path, class: 'header-cabinet' do %>
+                    <%= image_tag "ic-myoffice-inactiv.png" %> <span>Мой кабинет</span>
+                  <% end %>
+                <% else %>
+                  <a href="#sign-in-modal" class="header-cabinet" data-fancybox>
+                    <%= image_tag "ic-myoffice-inactiv.png" %> <span>Мой кабинет</span>
+                  </a>
+                <% end %>
+              </li>
             </ul>
           </div>
         </div>
@@ -117,6 +128,67 @@
           <% end %>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- User -->
+
+<div id="sign-in-modal">
+  <div class="login-wrap">
+    <div class="schedule-arrow" data-fancybox-close></div>
+    <div class="login">
+      <h2 class="login-head">Войти в личный кабинет</h2>
+      <%= form_for(:user, :url => session_path(:user)) do |f| %>
+        <div class="login-input">
+          <%= f.text_field :phone_number, required: true, placeholder: 'Логин' %>
+        </div>
+        <div class="login-input">
+          <%= f.password_field :password, required: true, placeholder: 'Пароль' %>
+        </div>
+        <div class="login-password">
+          <a href="#">Напомнить пароль</a>
+        </div>
+        <div class="login-submit">
+          <input type="submit" value="войти">
+        </div>
+        <div class="login-link">
+          <a href="#sign-up-modal" class="link" data-fancybox>создать аккаунт</a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div id="sign-up-modal">
+  <div class="schedule-arrow" data-fancybox-close></div>
+  <div class="login-wrap">
+    <div class="login">
+      <h2 class="login-head">Создать аккаунт</h2>
+      <%= form_for(:user, :url => registration_path(:user)) do |f| %>
+        <div class="login-input">
+          <%= f.text_field :phone_number, required: true, placeholder: 'Номер телефона' %>
+        </div>
+        <div class="login-input">
+          <%= f.password_field :password, required: true, autocomplete: 'off', placeholder: 'Пароль' %>
+        </div>
+        <div class="login-input">
+          <%= f.password_field :password_confirmation, autocomplete: 'off', required: true, placeholder: 'Повторить пароль' %>
+        </div>
+        <label class="login-news checkbox-label">
+          <div class="custom-checkbox">
+            <input type="checkbox">
+            <span></span>
+          </div>
+          <span class="text">Держать меня в курсе новостей</span>
+        </label>
+        <div class="login-submit">
+          <%= f.submit 'создать аккаунт' %>
+        </div>
+        <div class="login-link">
+          <a class="link" href="#" data-fancybox-close>уже регистрировался</a>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

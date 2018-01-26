@@ -1,0 +1,70 @@
+<div class="my-account-wrap">
+  <div class="container">
+    <a href="#" class="link_back"><span>&lt;</span>назад</a>
+    <h2 class="head">Мой кабинет</h2>
+    <div class="my-account">
+      <div class="my-account-sidebar">
+        <ul>
+          <li class="active"><a href="#">Профиль</a></li>
+          <li><a href="#">Мои займы</a></li>
+          <li><a href="#">Платежи по займу</a></li>
+          <li><a href="#">Оставить отзыв</a></li>
+        </ul>
+        <div class="hotline">
+          <img src="assets/ic-hotline-black.png" alt="">
+          <div class="hotline-content">
+            <p>Телефон горячей линии</p>
+            <a href="tel:74951202090"><span>+7 (495)</span> 120-20-90</a>
+          </div>
+        </div>
+      </div>
+      <div class="my-account-content">
+        <div class="profile-wrap">
+          <h2 class="profile-head">Личная информация</h2>
+          <div class="profile">
+            <div class="profile-item">
+              <div class="profile-item-el">
+                <img src="assets/ic-user-black.svg" alt="">
+                <p>Тарасов Сергей Максимович</p>
+              </div>
+              <div class="profile-item-el">
+                <img src="assets/ic-calendar-black.svg" alt="">
+                <p>21 сентября 1973</p>
+              </div>
+              <div class="profile-item-el">
+                <img src="assets/ic-map.svg" alt="">
+                <p>Россия, Москва, Краснопресненская наб., 12</p>
+              </div>
+            </div>
+            <div class="profile-item">
+              <div class="profile-item-el">
+                <img src="assets/ic-mail.svg" alt="">
+                <%= link_to current_user.email, "tel:#{current_user.email}" %>
+              </div>
+              <div class="profile-item-el">
+                <img src="assets/ic-phone.svg" alt="">
+                <%= link_to current_user.phone_number, "tel:#{current_user.phone_number}" %>
+              </div>
+              <div class="profile-item-el">
+                <img src="assets/ic-creditcard.svg" alt="">
+                <p>3947 **** **** 3873</p>
+              </div>
+            </div>
+          </div>
+          <div class="profile-info">
+            <div class="profile-info-text">Мы ни при каких обстоятельствах не предоставляем третьим лицам ваши персональные данные.</div>
+            <a href="#" class="profile-info-link">изменить</a>
+          </div>
+          <div class="profile-docs">
+            <h2 class="profile-head">Документы</h2>
+            <label class="profile-upload-file">
+              <input type="file">
+              <span class="link">загрузить документ</span>
+            </label>
+            <div class="profile-upload-result"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
