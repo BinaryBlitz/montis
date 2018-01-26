@@ -270,16 +270,20 @@ $(document).ready(function() {
       data: data,
       success: function(data) {
         var carPriceResponse = data.response.car_price;
-        var amount = carPriceResponse.items[0].amount;
-
-        console.log(carPriceResponse);
-        console.log(amount);
+        var car = carPriceResponse.items[0];
+        var amount = car.amount;
+        var model = car.model.name;
+        var year = car.year;
 
         amount = amount * 0.7;
 
         if (amount > 1500000) {
           amount = 1500000;
         }
+
+        $(".mark-model").html(model);
+        $(".mark-year").html(year);
+        $(".mark-vin-or-number").html(vin_or_number);
 
         $(".mark-sum").data('amount', amount);
         $(".mark-sum").slider('option', 'max', amount);
