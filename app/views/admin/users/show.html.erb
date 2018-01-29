@@ -12,7 +12,11 @@
   <strong>Дата рождения</strong>: <%= @user.loans.last.birthdate %>
 </p>
 
+<p>
+  <strong>Документ</strong>: <%= link_to 'Скачать документ', @user.document_url %>
+</p>
 
+<strong>Займы:</strong>
 <table class="table">
   <thead>
     <tr>

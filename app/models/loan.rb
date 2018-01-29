@@ -1,7 +1,7 @@
 class Loan < ApplicationRecord
   belongs_to :user
 
-  before_create :create_user
+  before_validation :create_user
 
   validates :amount, :term, :first_name, :phone_number, presence: true
   validates :amount, :term, numericality: { greater_than: 0 }
