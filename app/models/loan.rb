@@ -8,7 +8,7 @@ class Loan < ApplicationRecord
   validates :term, numericality: { less_than_or_equal_to: 12 }
 
   def full_name
-    "#{last_name} #{first_name}"
+    "#{last_name} #{first_name} #{patronymic_name}"
   end
 
   private
@@ -16,6 +16,7 @@ class Loan < ApplicationRecord
   def create_user
     generated_password = Devise.friendly_token.first(8)
     user = User.create!(email: email, password: generated_password)
+    self.user = user
     UserMailer.new_user(user, generated_password).deliver_later
   end
 end

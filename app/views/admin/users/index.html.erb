@@ -1,0 +1,20 @@
+<h1>Пользователи</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>№</th>
+      <th>Почта</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Посмотреть', [:admin, user], class: 'btn btn-sm btn-primary' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
