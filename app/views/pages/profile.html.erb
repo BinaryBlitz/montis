@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="my-account-content">
-        <div class="profile-wrap">
+        <div class="my-account-item profile-wrap">
           <h2 class="profile-head">Личная информация</h2>
           <div class="profile">
             <div class="profile-item">
@@ -56,12 +56,14 @@
             <a href="#" class="profile-info-link">изменить</a>
           </div>
           <div class="profile-docs">
-            <h2 class="profile-head">Документы</h2>
-            <label class="profile-upload-file">
-              <input type="file">
-              <span class="link">загрузить документ</span>
-            </label>
-            <div class="profile-upload-result"></div>
+            <%= form_for(current_user, html: { method: :put, id: 'user-document-form' }) do |f| %>
+              <h2 class="profile-head">Документы</h2>
+              <label class="profile-upload-file">
+                <%= f.file_field :document, id: 'user-document' %>
+                <span class="link">загрузить документ</span>
+              </label>
+              <div class="profile-upload-result"><%= current_user.document.file.filename %></div>
+            <% end %>
           </div>
         </div>
       </div>

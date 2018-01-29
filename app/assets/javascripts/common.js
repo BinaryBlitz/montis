@@ -160,6 +160,49 @@ $(document).ready(function() {
     })()
   );
 
+  // My account callback
+
+  $(
+    (function() {
+      $(".my-account-sidebar li").click(function() {
+        var current = $(this).index();
+
+        if ($(this).hasClass("active")) {
+          $(".my-account-item")
+            .eq(current)
+            .hide();
+          $(this).removeClass("active");
+        } else {
+          $(".my-account-item").hide();
+          $(".my-account-item")
+            .eq(current)
+            .fadeIn();
+          $(".my-account-sidebar li").removeClass("active");
+          $(this).addClass("active");
+        }
+      });
+
+      var over;
+
+      $(".my-account")
+        .mouseenter(function() {
+          over = true;
+        })
+        .mouseleave(function() {
+          over = false;
+        });
+
+      $(document).click(function(e) {
+        if (!over) {
+          if ($(".my-account-sidebar li").hasClass("active")) {
+            $(".my-account-item").hide();
+            $(".my-account-sidebar li").removeClass("active");
+          }
+        }
+      });
+    })()
+  );
+
   // Select2 init
 
   $(".select2").select2({ width: "100%" });
@@ -358,6 +401,10 @@ $(document).ready(function() {
     e.preventDefault();
 
     nextSlide();
+  });
+
+  $('#user-document').change(function() {
+    $('#user-document-form').submit();
   });
 
   $('.estimation #new_loan').submit(function(e) {

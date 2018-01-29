@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          authentication_keys: [:phone_number]
 
+  mount_uploader :document, DocumentUploader
+
   def email_required?
     false
   end
