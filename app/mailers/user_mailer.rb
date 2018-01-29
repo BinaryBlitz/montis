@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
   def new_user(user, password)
     @user = user
     @password = password
-    subject = "Регистрация на сайте mkk-montis.ru"
+    subject = 'Регистрация на сайте mkk-montis.ru'
     mail(to: @user.email, subject: subject)
   end
 end
