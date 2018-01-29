@@ -181,25 +181,6 @@ $(document).ready(function() {
           $(this).addClass("active");
         }
       });
-
-      var over;
-
-      $(".my-account")
-        .mouseenter(function() {
-          over = true;
-        })
-        .mouseleave(function() {
-          over = false;
-        });
-
-      $(document).click(function(e) {
-        if (!over) {
-          if ($(".my-account-sidebar li").hasClass("active")) {
-            $(".my-account-item").hide();
-            $(".my-account-sidebar li").removeClass("active");
-          }
-        }
-      });
     })()
   );
 

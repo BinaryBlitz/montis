@@ -132,7 +132,7 @@
   </div>
 </div>
 
-<!-- User -->
+<!-- Sign In -->
 
 <div id="sign-in-modal">
   <div class="login-wrap">
@@ -141,7 +141,7 @@
       <h2 class="login-head">Войти в личный кабинет</h2>
       <%= form_for(:user, :url => session_path(:user)) do |f| %>
         <div class="login-input">
-          <%= f.text_field :phone_number, required: true, placeholder: 'Логин' %>
+          <%= f.email_field :email, required: true, placeholder: 'Логин' %>
         </div>
         <div class="login-input">
           <%= f.password_field :password, required: true, placeholder: 'Пароль' %>
@@ -151,42 +151,6 @@
         </div>
         <div class="login-submit">
           <input type="submit" value="войти">
-        </div>
-        <div class="login-link">
-          <a href="#sign-up-modal" class="link" data-fancybox>создать аккаунт</a>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<div id="sign-up-modal">
-  <div class="schedule-arrow" data-fancybox-close></div>
-  <div class="login-wrap">
-    <div class="login">
-      <h2 class="login-head">Создать аккаунт</h2>
-      <%= form_for(:user, :url => registration_path(:user)) do |f| %>
-        <div class="login-input">
-          <%= f.text_field :phone_number, required: true, placeholder: 'Номер телефона' %>
-        </div>
-        <div class="login-input">
-          <%= f.password_field :password, required: true, autocomplete: 'off', placeholder: 'Пароль' %>
-        </div>
-        <div class="login-input">
-          <%= f.password_field :password_confirmation, autocomplete: 'off', required: true, placeholder: 'Повторить пароль' %>
-        </div>
-        <label class="login-news checkbox-label">
-          <div class="custom-checkbox">
-            <input type="checkbox">
-            <span></span>
-          </div>
-          <span class="text">Держать меня в курсе новостей</span>
-        </label>
-        <div class="login-submit">
-          <%= f.submit 'создать аккаунт' %>
-        </div>
-        <div class="login-link">
-          <a class="link" href="#" data-fancybox-close>уже регистрировался</a>
         </div>
       <% end %>
     </div>
