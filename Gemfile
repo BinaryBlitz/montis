@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'devise', '~> 4.4.1'
+gem 'carrierwave', '~> 1.0'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery', '~> 3.2'
@@ -55,6 +56,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :production do
+  gem 'fog-aws', '~> 0.12'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
