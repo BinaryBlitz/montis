@@ -1,0 +1,15 @@
+<h1>Пользователи</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>№</th>
+      <th>ФИО</th>
+      <th>Почта</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: 'admin/users/user', collection: @users, cached: true %>
+  </tbody>
+</table>

@@ -1,15 +1,7 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         authentication_keys: [:phone_number]
+  has_many :loans, dependent: :destroy
 
-  def email_required?
-    false
-  end
+  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
 
-  def will_save_change_to_email?
-    false
-  end
+  mount_uploader :document, DocumentUploader
 end

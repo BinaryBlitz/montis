@@ -16,6 +16,9 @@
 /node_modules
 /yarn-error.log
 
+# Ignore uploads
+/public/uploads
+
 .byebug_history
 
 # macOS

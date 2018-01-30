@@ -10,10 +10,12 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/', to: 'loans#index'
 
-    resources :callback_requests
-    resources :loans
+    resources :callback_requests, only: [:index]
+    resources :loans, only: [:index, :show]
+    resources :users, only: [:index, :show]
   end
 
   resources :callback_requests
   resources :loans
+  resource :user, only: [:update]
 end

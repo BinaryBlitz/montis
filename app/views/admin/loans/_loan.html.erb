@@ -1,0 +1,8 @@
+<% cache [:admin, loan] do %>
+  <tr>
+    <td><%= loan.id %></td>
+    <td><%= loan.amount %></td>
+    <td><%= loan.term %></td>
+    <td><%= loan.created_at.to_s(:long) %></td>
+  </tr>
+<% end %>

@@ -19,35 +19,27 @@
         </div>
       </div>
       <div class="my-account-content">
-        <div class="profile-wrap">
+        <div class="my-account-item profile-wrap">
           <h2 class="profile-head">Личная информация</h2>
           <div class="profile">
             <div class="profile-item">
               <div class="profile-item-el">
                 <img src="assets/ic-user-black.svg" alt="">
-                <p>Тарасов Сергей Максимович</p>
+                <p><%= current_user.loans.last.full_name %></p>
               </div>
               <div class="profile-item-el">
                 <img src="assets/ic-calendar-black.svg" alt="">
-                <p>21 сентября 1973</p>
-              </div>
-              <div class="profile-item-el">
-                <img src="assets/ic-map.svg" alt="">
-                <p>Россия, Москва, Краснопресненская наб., 12</p>
+                <p><%= current_user.loans.last.birthdate.strftime('%d.%m.%Y') %></p>
               </div>
             </div>
             <div class="profile-item">
               <div class="profile-item-el">
                 <img src="assets/ic-mail.svg" alt="">
-                <%= link_to current_user.email, "tel:#{current_user.email}" %>
+                <%= link_to current_user.email, "mailto:#{current_user.email}" %>
               </div>
               <div class="profile-item-el">
                 <img src="assets/ic-phone.svg" alt="">
-                <%= link_to current_user.phone_number, "tel:#{current_user.phone_number}" %>
-              </div>
-              <div class="profile-item-el">
-                <img src="assets/ic-creditcard.svg" alt="">
-                <p>3947 **** **** 3873</p>
+                <%= link_to current_user.loans.last.phone_number, "tel:#{current_user.loans.last.phone_number}" %>
               </div>
             </div>
           </div>
@@ -56,12 +48,14 @@
             <a href="#" class="profile-info-link">изменить</a>
           </div>
           <div class="profile-docs">
-            <h2 class="profile-head">Документы</h2>
-            <label class="profile-upload-file">
-              <input type="file">
-              <span class="link">загрузить документ</span>
-            </label>
-            <div class="profile-upload-result"></div>
+            <%= form_for(current_user, html: { method: :put, id: 'user-document-form' }) do |f| %>
+              <h2 class="profile-head">Документы</h2>
+              <label class="profile-upload-file">
+                <%= f.file_field :document, id: 'user-document' %>
+                <span class="link">загрузить документ</span>
+              </label>
+              <div class="profile-upload-result"><%= current_user.document.file&.filename %></div>
+            <% end %>
           </div>
         </div>
       </div>

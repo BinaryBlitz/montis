@@ -1,0 +1,33 @@
+<h1>Пользователь: <%= @user.loans.last.full_name %></h1>
+
+<p>
+  <strong>Email</strong>: <%= @user.email %>
+</p>
+
+<p>
+  <strong>Номер телефона</strong>: <%= @user.loans.last.phone_number %>
+</p>
+
+<p>
+  <strong>Дата рождения</strong>: <%= @user.loans.last.birthdate %>
+</p>
+
+<p>
+  <strong>Документ</strong>: <%= link_to 'Скачать документ', @user.document_url %>
+</p>
+
+<strong>Займы:</strong>
+<table class="table">
+  <thead>
+    <tr>
+      <th>№</th>
+      <th>Сумма</th>
+      <th>Срок</th>
+      <th>Дата</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: 'admin/loans/loan', collection: @user.loans, cached: true %>
+  </tbody>
+</table>

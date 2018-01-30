@@ -1,0 +1,8 @@
+<% cache [:admin, user] do %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.loans.last.full_name %></td>
+    <td><%= user.email %></td>
+    <td><%= link_to 'Посмотреть', [:admin, user], class: 'btn btn-sm btn-primary' %></td>
+  </tr>
+<% end %>

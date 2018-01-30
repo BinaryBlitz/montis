@@ -3,7 +3,7 @@
     <h2 class="login-head">Войти в личный кабинет</h2>
     <%= form_for(:user, :url => session_path(:user)) do |f| %>
       <div class="login-input">
-        <%= f.text_field :phone_number, required: true, placeholder: 'Логин' %>
+        <%= f.email_field :email, required: true, placeholder: 'Логин' %>
       </div>
       <div class="login-input">
         <%= f.password_field :password, required: true, placeholder: 'Пароль' %>
@@ -13,9 +13,6 @@
       </div>
       <div class="login-submit">
         <input type="submit" value="войти">
-      </div>
-      <div class="login-link">
-        <a href="#sign-up-modal" class="link" data-fancybox>создать аккаунт</a>
       </div>
     <% end %>
   </div>
