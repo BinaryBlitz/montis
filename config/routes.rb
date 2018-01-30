@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :callback_requests, only: [:index]
     resources :loans, only: [:index, :show]
     resources :users, only: [:index, :show]
+    resources :reviews, only: [:index, :edit, :update]
   end
 
   resources :callback_requests
