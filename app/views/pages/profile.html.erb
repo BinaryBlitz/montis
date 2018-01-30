@@ -6,9 +6,9 @@
       <div class="my-account-sidebar">
         <ul>
           <li class="active"><a href="#">Профиль</a></li>
+          <li><a href="#">Оставить отзыв</a></li>
           <li><a href="#">Мои займы</a></li>
           <li><a href="#">Платежи по займу</a></li>
-          <li><a href="#">Оставить отзыв</a></li>
         </ul>
         <div class="hotline">
           <img src="assets/ic-hotline-black.png" alt="">
@@ -57,6 +57,36 @@
               <div class="profile-upload-result"><%= current_user.document.file&.filename %></div>
             <% end %>
           </div>
+        </div>
+
+        <!-- Review -->
+
+        <div class="my-account-item review-wrap" style="display: none;">
+          <div class="review-text">Вы можете оставить свой отзыв о качестве обслуживания и предоставляемых услугах.</div>
+          <% if current_user.review %>
+            <div class="review-items">
+              <div class="question-item">
+                <div class="question-item-name"><%= current_user.review.created_at.to_s(:short) %></div>
+                <div class="question-answer">
+                  <div class="review-head">
+                    <div class="review-head-name"><%= current_user.loans.last.full_name %></div>
+                    <div class="review-state">
+                      <img src="assets/ic-clock.svg" alt="">
+                      <div class="review-state-text"><%= status_for_review(current_user.review) %></div>
+                    </div>
+                  </div>
+                  <p><%= current_user.review.content %></p>
+                </div>
+              </div>
+            </div>
+          <% else %>
+            <%= form_for Review.new, html: { class: 'review-form' } do |f| %>
+              <%= f.text_area :content, placeholder: 'Ваш отзыв' %>
+              <div class="review-form-input">
+                <%= f.submit 'Отправить', class: 'link' %>
+              </div>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>

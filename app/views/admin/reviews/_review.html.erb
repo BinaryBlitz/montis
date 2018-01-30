@@ -1,0 +1,9 @@
+<% cache [:admin, review] do %>
+  <tr>
+    <td><%= review.id %></td>
+    <td><%= review.content %></td>
+    <td><%= check_box_tag :approved, 1, review.approved %></td>
+    <td><%= review.created_at.to_s(:long) %></td>
+    <td><%= link_to 'Проверить', edit_admin_review_path(review), class: 'btn btn-sm btn-warning' %></td>
+  </tr>
+<% end %>

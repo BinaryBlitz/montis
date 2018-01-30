@@ -167,12 +167,7 @@ $(document).ready(function() {
       $(".my-account-sidebar li").click(function() {
         var current = $(this).index();
 
-        if ($(this).hasClass("active")) {
-          $(".my-account-item")
-            .eq(current)
-            .hide();
-          $(this).removeClass("active");
-        } else {
+        if (!$(this).hasClass("active")) {
           $(".my-account-item").hide();
           $(".my-account-item")
             .eq(current)

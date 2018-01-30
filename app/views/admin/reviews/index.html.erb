@@ -1,0 +1,16 @@
+<h1>Отзывы</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>№</th>
+      <th>Отзыв</th>
+      <th>Проверенно</th>
+      <th>Дата создания</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: 'admin/reviews/review', collection: @reviews, cached: true %>
+  </tbody>
+</table>
