@@ -6,8 +6,8 @@
       <div class="my-account-sidebar">
         <ul>
           <li class="active"><a href="#">Профиль</a></li>
-          <li><a href="#">Оставить отзыв</a></li>
           <li><a href="#">Мои займы</a></li>
+          <li><a href="#">Оставить отзыв</a></li>
           <li><a href="#">Платежи по займу</a></li>
         </ul>
         <div class="hotline">
@@ -59,9 +59,95 @@
           </div>
         </div>
 
+        <!-- Loans -->
+
+        <div class="my-account-item loans-wrap burger-wrap">
+          <% current_user.loans.each do |loan| %>
+            <div class="loans-item">
+              <div class="loans-head">
+                <div class="loans-head-date"><%= loan.created_at.strftime('%d %B %Y') %></div>
+                <div class="loans-node">
+                  <div class="loans-node-number">№<%= loan.id %></div>
+                  <div class="loans-node-text">Займ под залог автомобиля</div>
+                </div>
+                <div class="loans-head-img">
+                  <img src="assets/ic-arrow-up-black.svg" alt="">
+                </div>
+              </div>
+              <div class="loans-content">
+                <div class="loans-elements">
+                  <div class="loans-el">
+                    <div class="loans-el-name">срок займа</div>
+                    <div class="loans-el-data"><%= loan.term %><span>месяцев</span></div>
+                  </div>
+                  <div class="loans-el">
+                    <div class="loans-el-name">Сумма займа</div>
+                    <div class="loans-el-data"><%= loan.amount %><span>₽</span></div>
+                  </div>
+                  <div class="loans-el">
+                    <div class="loans-el-name">Дата платежа</div>
+                    <div class="loans-el-data">2.11.2017</div>
+                  </div>
+                  <div class="loans-el">
+                    <div class="loans-el-name">сумма платежа</div>
+                    <div class="loans-el-data">45 000 <span>₽</span></div>
+                  </div>
+                  <div class="loans-el">
+                    <div class="loans-el-name">осталось платежей</div>
+                    <div class="loans-el-data">11 <span>платежей</span></div>
+                  </div>
+                  <div class="loans-el">
+                    <div class="loans-el-name">Оставшаяся сумма</div>
+                    <div class="loans-el-data">500 000 <span>₽</span></div>
+                  </div>
+                </div>
+                <div class="inform">
+                  <div class="inform-text">Информация о просрочке и начисленных пенях</div>
+                  <div class="inform-items">
+                    <div class="inform-item">
+                      <div class="inform-item-name">Прсрочка</div>
+                      <div class="inform-item-data">6 <span>дней</span></div>
+                    </div>
+                    <div class="inform-item">
+                      <div class="inform-item-name">Пени</div>
+                      <div class="inform-item-data">600 <span>₽</span></div>
+                    </div>
+                  </div>
+                </div>
+                <form class="reminder">
+                  <div class="reminder-head">Напомнить за 5 дней до платежа</div>
+                  <div class="reminder-content">
+                    <div class="reminder-label">
+                      <label class="checkbox-label">
+                        <div class="custom-checkbox">
+                          <input type="checkbox" checked>
+                          <span></span>
+                        </div>
+                        <span class="text">СМС сообщением на телефон</span>
+                      </label>
+                    </div>
+                    <div class="reminder-label">
+                      <label class="checkbox-label">
+                        <div class="custom-checkbox">
+                          <input type="checkbox">
+                          <span></span>
+                        </div>
+                        <span class="text">Письмом на электронную почту</span>
+                      </label>
+                    </div>
+                    <div class="reminder-link">
+                      <input type="submit" class="link" value="погасить досрочно" />
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
         <!-- Review -->
 
-        <div class="my-account-item review-wrap" style="display: none;">
+        <div class="my-account-item review-wrap burger-wrap">
           <div class="review-text">Вы можете оставить свой отзыв о качестве обслуживания и предоставляемых услугах.</div>
           <% if current_user.review %>
             <div class="review-items">
