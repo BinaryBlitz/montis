@@ -71,8 +71,8 @@
                   <div class="review-head">
                     <div class="review-head-name"><%= current_user.loans.last.full_name %></div>
                     <div class="review-state">
-                      <img src="images/ic-clock.svg" alt="">
-                      <div class="review-state-text"><%= current_user.review.approved %></div>
+                      <img src="assets/ic-clock.svg" alt="">
+                      <div class="review-state-text"><%= status_for_review(current_user.review) %></div>
                     </div>
                   </div>
                   <p><%= current_user.review.content %></p>
