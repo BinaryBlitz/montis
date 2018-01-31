@@ -1,6 +1,8 @@
 class Loan < ApplicationRecord
   belongs_to :user
 
+  has_many :payments, dependent: :destroy
+
   before_validation :create_user
 
   validates :amount, :term, :first_name, :phone_number, presence: true
