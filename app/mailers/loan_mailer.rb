@@ -6,4 +6,10 @@ class LoanMailer < ApplicationMailer
     subject = "Новая заявка: #{@loan.full_name}"
     mail(subject: subject)
   end
+
+  def date_of_payment_reminder(loan)
+    @loan = loan
+    subject = "Напоминание о дате платежа для займа №#{loan.id}"
+    mail(to: @loan.email, subject: subject)
+  end
 end
