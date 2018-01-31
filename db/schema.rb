@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180131144734) do
+ActiveRecord::Schema.define(version: 20180131205542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,10 @@ ActiveRecord::Schema.define(version: 20180131144734) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.boolean "sms_notifications_enabled", default: true
+    t.boolean "email_notifications_enabled", default: true
+    t.boolean "notified", default: false
+    t.datetime "next_date_of_payment"
     t.index ["user_id"], name: "index_loans_on_user_id"
   end
 
