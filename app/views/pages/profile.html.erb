@@ -61,8 +61,8 @@
 
         <!-- Loans -->
 
-        <div class="my-account-item loans-wrap burger-wrap">
-          <% current_user.loans.each do |loan| %>
+        <div class="loans-wrap my-account-item" style="display: none;">
+          <% current_user.loans.order(created_at: :desc).each do |loan| %>
             <div class="loans-item">
               <div class="loans-head">
                 <div class="loans-head-date"><%= loan.created_at.strftime('%d %B %Y') %></div>
@@ -86,19 +86,19 @@
                   </div>
                   <div class="loans-el">
                     <div class="loans-el-name">Дата платежа</div>
-                    <div class="loans-el-data">2.11.2017</div>
+                    <div class="loans-el-data"><%= loan.next_payment_date.strftime('%d.%m.%Y') %></div>
                   </div>
                   <div class="loans-el">
                     <div class="loans-el-name">сумма платежа</div>
-                    <div class="loans-el-data">45 000 <span>₽</span></div>
+                    <div class="loans-el-data"><%= loan.monthly_payment.to_i %> <span>₽</span></div>
                   </div>
                   <div class="loans-el">
                     <div class="loans-el-name">осталось платежей</div>
-                    <div class="loans-el-data">11 <span>платежей</span></div>
+                    <div class="loans-el-data"><%= loan.number_of_payments_left %><span>платежей</span></div>
                   </div>
                   <div class="loans-el">
                     <div class="loans-el-name">Оставшаяся сумма</div>
-                    <div class="loans-el-data">500 000 <span>₽</span></div>
+                    <div class="loans-el-data"><%= loan.amount_to_pay %> <span>₽</span></div>
                   </div>
                 </div>
                 <div class="inform">
@@ -114,13 +114,13 @@
                     </div>
                   </div>
                 </div>
-                <form class="reminder">
+                <%= form_for loan, method: :put, html: { class: 'reminder' } do |f| %>
                   <div class="reminder-head">Напомнить за 5 дней до платежа</div>
                   <div class="reminder-content">
                     <div class="reminder-label">
                       <label class="checkbox-label">
                         <div class="custom-checkbox">
-                          <input type="checkbox" checked>
+                          <%= f.check_box :sms_notifications_enabled, class: 'notifications-checkbox', onchange: 'this.form.submit()' %>
                           <span></span>
                         </div>
                         <span class="text">СМС сообщением на телефон</span>
@@ -129,7 +129,7 @@
                     <div class="reminder-label">
                       <label class="checkbox-label">
                         <div class="custom-checkbox">
-                          <input type="checkbox">
+                          <%= f.check_box :email_notifications_enabled, class: 'notifications-checkbox', onchange: 'this.form.submit()' %>
                           <span></span>
                         </div>
                         <span class="text">Письмом на электронную почту</span>
@@ -139,7 +139,7 @@
                       <input type="submit" class="link" value="погасить досрочно" />
                     </div>
                   </div>
-                </form>
+                <% end %>
               </div>
             </div>
           <% end %>
@@ -147,7 +147,7 @@
 
         <!-- Review -->
 
-        <div class="my-account-item review-wrap burger-wrap">
+        <div class="my-account-item review-wrap" style="display: none;">
           <div class="review-text">Вы можете оставить свой отзыв о качестве обслуживания и предоставляемых услугах.</div>
           <% if current_user.review %>
             <div class="review-items">
