@@ -10,6 +10,15 @@ class LoansController < ApplicationController
     end
   end
 
+  def update
+    @loan = Loan.find(params[:id])
+    if @loan.update(loan_update_params)
+      redirect_to profile_path
+    else
+      redirect_to profile_path, alert: 'Что-то пошло не так'
+    end
+  end
+
   private
 
   def loan_params
@@ -20,5 +29,9 @@ class LoansController < ApplicationController
         :first_name, :last_name, :patronymic_name, :birthdate,
         :passport_number, :passport_date, :email, :phone_number
       )
+  end
+
+  def loan_update_params
+    params.require(:loan).permit(:sms_notifications_enabled, :email_notifications_enabled)
   end
 end
