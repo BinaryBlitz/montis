@@ -6,6 +6,7 @@ class Loan < ApplicationRecord
   has_many :payments, dependent: :destroy
 
   before_validation :create_user, on: :create
+  before_save :set_next_date_of_payment
 
   validates :amount, :term, :first_name, :phone_number, presence: true
   validates :amount, :term, numericality: { greater_than: 0 }
@@ -35,7 +36,13 @@ class Loan < ApplicationRecord
   end
 
   def calculate_next_date_of_payment
-    created_at + payments.paid.count.months
+    date = payments.any? ? payments.paid.count.months : 1.month
+    created_at + date
+  end
+
+  def overdue_in_days
+    overdue = ((Time.zone.now - next_date_of_payment) / 1.day).to_i
+    return 0 if overdue.negative?
   end
 
   def notify_with_sms
@@ -49,6 +56,10 @@ class Loan < ApplicationRecord
   end
 
   private
+
+  def set_next_date_of_payment
+    self.next_date_of_payment = calculate_next_date_of_payment
+  end
 
   def create_user
     generated_password = Devise.friendly_token.first(8)
