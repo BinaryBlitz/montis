@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20180131205542) do
     t.boolean "email_notifications_enabled", default: true
     t.boolean "notified", default: false
     t.datetime "next_date_of_payment"
+    t.boolean "advanced_payment_requested", default: false
     t.index ["user_id"], name: "index_loans_on_user_id"
   end
 
