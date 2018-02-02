@@ -3,13 +3,17 @@ class Payment < ApplicationRecord
 
   validates :amount, numericality: { greater_than: 0 }
 
-  after_save :set_next_date_of_payment
+  after_save :set_next_date_of_payment, on: :create
 
   scope :paid, -> { where(paid: true) }
+
+  def calculate_next_date_of_payment
+    loan.next_date_of_payment + 1.month
+  end
 
   private
 
   def set_next_date_of_payment
-    loan.update_column(:next_date_of_payment, loan.calculate_next_date_of_payment)
+    loan.update_column(:next_date_of_payment, calculate_next_date_of_payment)
   end
 end

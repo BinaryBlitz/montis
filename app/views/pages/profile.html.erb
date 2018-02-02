@@ -138,7 +138,7 @@
                       </label>
                     </div>
                     <div class="reminder-link">
-                      <input type="submit" class="link" value="погасить досрочно" />
+                      <%= link_to 'погасить досрочно', make_advanced_payment_request_loan_path(loan), method: :put, class: 'link' %>
                     </div>
                   </div>
                 <% end %>

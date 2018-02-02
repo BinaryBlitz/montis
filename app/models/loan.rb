@@ -8,7 +8,7 @@ class Loan < ApplicationRecord
   has_many :payments, dependent: :destroy
 
   before_validation :create_user, on: :create
-  before_save :set_next_date_of_payment
+  before_save :set_next_date_of_payment, on: :create
 
   validates :amount, :term, :first_name, :phone_number, presence: true
   validates :amount, :term, numericality: { greater_than: 0 }
@@ -41,11 +41,6 @@ class Loan < ApplicationRecord
     amount * MONTHLY_RATE / (1 - 1 / (1 + MONTHLY_RATE) ** term)
   end
 
-  def calculate_next_date_of_payment
-    date = payments.any? ? payments.paid.count.months : 1.month
-    created_at + date
-  end
-
   def overdue_in_days
     overdue = ((Time.zone.now - next_date_of_payment) / 1.day).to_i
   end
@@ -63,7 +58,7 @@ class Loan < ApplicationRecord
   private
 
   def set_next_date_of_payment
-    self.next_date_of_payment = calculate_next_date_of_payment
+    self.next_date_of_payment = Time.zone.now + 1.month
   end
 
   def create_user

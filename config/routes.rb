@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   end
 
   resources :callback_requests
-  resources :loans
+  resources :loans do
+    put :make_advanced_payment_request, on: :member
+  end
   resources :reviews, only: [:create]
   resource :user, only: [:update]
 end

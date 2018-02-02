@@ -1,4 +1,6 @@
 class LoansController < ApplicationController
+  before_action :set_loan, only: [:update, :make_advanced_payment_request]
+
   def create
     @loan = Loan.new(loan_params)
 
@@ -11,7 +13,6 @@ class LoansController < ApplicationController
   end
 
   def update
-    @loan = Loan.find(params[:id])
     if @loan.update(loan_update_params)
       redirect_to profile_path
     else
@@ -19,7 +20,20 @@ class LoansController < ApplicationController
     end
   end
 
+  def make_advanced_payment_request
+    if !@loan.advanced_payment_requested && @loan.update(advanced_payment_requested: true)
+      redirect_to profile_path, notice: 'Заявка отправлена'
+      LoanMailer.request_for_advanced_payment(@loan).deliver_later
+    else
+      redirect_to profile_path, alert: 'Что-то пошло не так'
+    end
+  end
+
   private
+
+  def set_loan
+    @loan = Loan.find(params[:id])
+  end
 
   def loan_params
     params
