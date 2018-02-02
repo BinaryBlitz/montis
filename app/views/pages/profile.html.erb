@@ -101,19 +101,21 @@
                     <div class="loans-el-data"><%= loan.amount_to_pay %> <span>₽</span></div>
                   </div>
                 </div>
-                <div class="inform">
-                  <div class="inform-text">Информация о просрочке и начисленных пенях</div>
-                  <div class="inform-items">
-                    <div class="inform-item">
-                      <div class="inform-item-name">Просрочка</div>
-                      <div class="inform-item-data"><%= loan.overdue_in_days %><span>дней</span></div>
-                    </div>
-                    <div class="inform-item">
-                      <div class="inform-item-name">Пени</div>
-                      <div class="inform-item-data">600 <span>₽</span></div>
+                <% if loan.overdue_in_days.positive? %>
+                  <div class="inform">
+                    <div class="inform-text">Информация о просрочке и начисленных пенях</div>
+                    <div class="inform-items">
+                      <div class="inform-item">
+                        <div class="inform-item-name">Просрочка</div>
+                        <div class="inform-item-data"><%= loan.overdue_in_days %><span>дней</span></div>
+                      </div>
+                      <div class="inform-item">
+                        <div class="inform-item-name">Пени</div>
+                        <div class="inform-item-data"><% loan.penalty_amount %> <span>₽</span></div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                <% end %>
                 <%= form_for loan, method: :put, html: { class: 'reminder' } do |f| %>
                   <div class="reminder-head">Напомнить за 5 дней до платежа</div>
                   <div class="reminder-content">

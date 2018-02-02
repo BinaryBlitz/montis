@@ -1,5 +1,7 @@
 class Loan < ApplicationRecord
   MONTHLY_RATE = 0.06
+  PENALTY_RATE = 0.2
+  DAYS_IN_YEAR = 365
 
   belongs_to :user
 
@@ -31,6 +33,10 @@ class Loan < ApplicationRecord
     amount - payments.sum(:amount)
   end
 
+  def panalty_amount
+    overdue_in_days * PENALTY_RATE / DAYS_IN_YEAR
+  end
+
   def monthly_payment
     amount * MONTHLY_RATE / (1 - 1 / (1 + MONTHLY_RATE) ** term)
   end
@@ -42,7 +48,6 @@ class Loan < ApplicationRecord
 
   def overdue_in_days
     overdue = ((Time.zone.now - next_date_of_payment) / 1.day).to_i
-    return 0 if overdue.negative?
   end
 
   def notify_with_sms
