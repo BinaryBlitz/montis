@@ -19,6 +19,7 @@ class Loan < ApplicationRecord
 
   def self.notifiable
     where('? between date(next_date_of_payment) - 5 and next_date_of_payment', Time.zone.now)
+      .where(notified: false)
   end
 
   def full_name
@@ -42,7 +43,7 @@ class Loan < ApplicationRecord
   end
 
   def overdue_in_days
-    overdue = ((Time.zone.now - next_date_of_payment) / 1.day).to_i
+    ((Time.zone.now - next_date_of_payment) / 1.day).to_i
   end
 
   def notify_with_sms
@@ -58,7 +59,7 @@ class Loan < ApplicationRecord
   private
 
   def set_next_date_of_payment
-    self.next_date_of_payment = Time.zone.now + 1.month
+    self.next_date_of_payment = 1.month.from_now
   end
 
   def create_user

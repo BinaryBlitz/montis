@@ -8,7 +8,7 @@ class Payment < ApplicationRecord
   scope :paid, -> { where(paid: true) }
 
   def calculate_next_date_of_payment
-    loan.next_date_of_payment + 1.month
+    loan.payments.paid.count.months.from_now
   end
 
   private
