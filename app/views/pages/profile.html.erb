@@ -6,8 +6,8 @@
       <div class="my-account-sidebar">
         <ul>
           <li class="active"><a href="#">Профиль</a></li>
-          <li><a href="#">Оставить отзыв</a></li>
           <li><a href="#">Мои займы</a></li>
+          <li><a href="#">Оставить отзыв</a></li>
           <li><a href="#">Платежи по займу</a></li>
         </ul>
         <div class="hotline">
@@ -57,6 +57,94 @@
               <div class="profile-upload-result"><%= current_user.document.file&.filename %></div>
             <% end %>
           </div>
+        </div>
+
+        <!-- Loans -->
+
+        <div class="loans-wrap my-account-item" style="display: none;">
+          <% current_user.loans.order(created_at: :desc).each do |loan| %>
+            <div class="loans-item">
+              <div class="loans-head">
+                <div class="loans-head-date"><%= loan.created_at.strftime('%d %B %Y') %></div>
+                <div class="loans-node">
+                  <div class="loans-node-number">№<%= loan.id %></div>
+                  <div class="loans-node-text">Займ под залог автомобиля</div>
+                </div>
+                <div class="loans-head-img">
+                  <img src="assets/ic-arrow-up-black.svg" alt="">
+                </div>
+              </div>
+              <div class="loans-content">
+                <div class="loans-elements">
+                  <div class="loans-el">
+                    <div class="loans-el-name">срок займа</div>
+                    <div class="loans-el-data"><%= loan.term %><span>месяцев</span></div>
+                  </div>
+                  <div class="loans-el">
+                    <div class="loans-el-name">Сумма займа</div>
+                    <div class="loans-el-data"><%= loan.amount %><span>₽</span></div>
+                  </div>
+                  <div class="loans-el">
+                    <div class="loans-el-name">Дата платежа</div>
+                    <div class="loans-el-data"><%= loan.next_date_of_payment.strftime('%d.%m.%Y') %></div>
+                  </div>
+                  <div class="loans-el">
+                    <div class="loans-el-name">сумма платежа</div>
+                    <div class="loans-el-data"><%= loan.monthly_payment.to_i %> <span>₽</span></div>
+                  </div>
+                  <div class="loans-el">
+                    <div class="loans-el-name">осталось платежей</div>
+                    <div class="loans-el-data"><%= loan.number_of_payments_left %><span>платежей</span></div>
+                  </div>
+                  <div class="loans-el">
+                    <div class="loans-el-name">Оставшаяся сумма</div>
+                    <div class="loans-el-data"><%= loan.amount_to_pay %> <span>₽</span></div>
+                  </div>
+                </div>
+                <% if loan.overdue_in_days.positive? %>
+                  <div class="inform">
+                    <div class="inform-text">Информация о просрочке и начисленных пенях</div>
+                    <div class="inform-items">
+                      <div class="inform-item">
+                        <div class="inform-item-name">Просрочка</div>
+                        <div class="inform-item-data"><%= loan.overdue_in_days %><span>дней</span></div>
+                      </div>
+                      <div class="inform-item">
+                        <div class="inform-item-name">Пени</div>
+                        <div class="inform-item-data"><% loan.penalty_amount %> <span>₽</span></div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+                <%= form_for loan, method: :put, html: { class: 'reminder' } do |f| %>
+                  <div class="reminder-head">Напомнить за 5 дней до платежа</div>
+                  <div class="reminder-content">
+                    <div class="reminder-label">
+                      <label class="checkbox-label">
+                        <div class="custom-checkbox">
+                          <%= f.check_box :sms_notifications_enabled, class: 'notifications-checkbox', onchange: 'this.form.submit()' %>
+                          <span></span>
+                        </div>
+                        <span class="text">СМС сообщением на телефон</span>
+                      </label>
+                    </div>
+                    <div class="reminder-label">
+                      <label class="checkbox-label">
+                        <div class="custom-checkbox">
+                          <%= f.check_box :email_notifications_enabled, class: 'notifications-checkbox', onchange: 'this.form.submit()' %>
+                          <span></span>
+                        </div>
+                        <span class="text">Письмом на электронную почту</span>
+                      </label>
+                    </div>
+                    <div class="reminder-link">
+                      <%= link_to 'погасить досрочно', make_advanced_payment_request_loan_path(loan), method: :put, class: 'link' %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         </div>
 
         <!-- Review -->

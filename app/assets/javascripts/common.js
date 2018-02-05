@@ -179,6 +179,26 @@ $(document).ready(function() {
     })()
   );
 
+  // My account loans
+
+  $('.loans-item.active .loans-content').show();
+
+  $('.loans-head').click(function() {
+    var content = $(this).next();
+    var parent = $(this).parent();
+
+    if(parent.hasClass('active')) {
+      content.slideUp();
+      parent.removeClass('active');
+    }
+    else {
+      $('.loans-content').slideUp();
+      $('.loans-item').removeClass('active');
+      content.slideDown();
+      parent.addClass('active');
+    }
+  });
+
   // Select2 init
 
   $(".select2").select2({ width: "100%" });
