@@ -7,8 +7,8 @@
         <ul>
           <li class="active"><a href="#">Профиль</a></li>
           <li><a href="#">Мои займы</a></li>
-          <li><a href="#">Оставить отзыв</a></li>
           <li><a href="#">Платежи по займу</a></li>
+          <li><a href="#">Оставить отзыв</a></li>
         </ul>
         <div class="hotline">
           <img src="assets/ic-hotline-black.png" alt="">
@@ -145,6 +145,59 @@
               </div>
             </div>
           <% end %>
+        </div>
+
+        <!-- Payments -->
+
+        <div class="my-account-item" style="display: none;">
+          <%= form_for Payment.new, html: { class: 'payments-wrap' } do |f| %>
+            <div class="payments-items">
+              <div class="payments-item">
+                <h2 class="payments-item-head">займ</h2>
+                <%= f.collection_select :loan_id, current_user.loans, :id, :phone_number, { include_blank: false } %>
+              </div>
+              <div class="payments-item">
+                <div class="payments-item-el">
+                  <h2 class="payments-item-head">Рекомендуемая сумма</h2>
+                  <div class="payments-item-price">45 000 <span>₽</span></div>
+                </div>
+                <div class="payments-item-el">
+                  <h2 class="payments-item-head">Сумма платежа</h2>
+                  <input type="text" placeholder="0 ₽">
+                </div>
+              </div>
+              <div class="payments-item">
+                <div class="payments-item-name">Вы можете включить автоплатеж</div>
+                <label class="checkbox-label">
+                  <div class="custom-checkbox">
+                    <input type="checkbox" checked>
+                    <span></span>
+                  </div>
+                  <span class="text">Следующие платежи будут проходить автоматически</span>
+                </label>
+              </div>
+              <div class="payments-pay">
+                <%= f.submit 'Оплатить' %>
+              </div>
+            </div>
+          <% end %>
+          <div class="history">
+            <div class="history-head">история платежей</div>
+            <div class="history-items">
+              <% current_user.payments.each do |payment| %>
+                <div class="history-item">
+                  <div class="history-item-content">
+                    <div class="loans-head-date">7 окт 2016</div>
+                      <div class="loans-node">
+                        <div class="loans-node-number">№<%= payment.loan.id %></div>
+                        <div class="loans-node-text">Займ под залог автомобиля</div>
+                      </div>
+                    </div>
+                  <div class="history-sum"><%= payment.amount %> <span>₽</span></div>
+                </div>
+              <% end %>
+            </div>
+          </div>
         </div>
 
         <!-- Review -->

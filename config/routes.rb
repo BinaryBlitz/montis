@@ -21,5 +21,6 @@ Rails.application.routes.draw do
     put :make_advanced_payment_request, on: :member
   end
   resources :reviews, only: [:create]
+  resources :payments, only: [:create]
   resource :user, only: [:update]
 end
