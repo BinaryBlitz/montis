@@ -154,7 +154,7 @@
             <div class="payments-items">
               <div class="payments-item">
                 <h2 class="payments-item-head">займ</h2>
-                <%= f.collection_select :loan_id, current_user.loans, :id, :phone_number, { include_blank: false } %>
+                <%= f.select :loan_id, current_user.loans.map { |loan| ["№#{loan.id} | Займ под залог автомобиля", loan.id] }, { include_blank: false } %>
               </div>
               <div class="payments-item">
                 <div class="payments-item-el">
