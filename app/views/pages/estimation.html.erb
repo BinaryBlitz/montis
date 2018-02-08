@@ -67,10 +67,12 @@
                           <li>vin/гос. номер:</li>
                           <li><span class="mark-vin-or-number"></span></li>
                         </ul>
+                        <%= f.hidden_field :car_model, id: 'car-model' %>
                         <ul class="decision-content-item">
                           <li>год производства:</li>
                           <li><span class="mark-year"></span></li>
                         </ul>
+                        <%= f.hidden_field :car_year, id: 'car-year' %>
                       </div>
 
                       <div class="mark-item">
