@@ -323,6 +323,8 @@ $(document).ready(function() {
         $(".mark-model").html(model);
         $(".mark-year").html(year);
         $(".mark-vin-or-number").html(vin_or_number);
+        $("#car-model").val(model);
+        $("#car-year").val(year);
 
         $(".mark-sum").data('amount', amount);
         $(".mark-sum").slider('option', 'max', amount);
