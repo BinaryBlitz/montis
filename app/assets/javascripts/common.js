@@ -75,7 +75,7 @@ $(document).ready(function() {
 
   $(".mark-sum").slider({
     range: "min",
-    min: 5000,
+    min: 0,
     max: 1500000,
     value: 500000,
     step: 1000,
