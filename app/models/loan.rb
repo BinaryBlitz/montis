@@ -34,7 +34,7 @@ class Loan < ApplicationRecord
     amount - payments.sum(:amount)
   end
 
-  def panalty_amount
+  def penalty_amount
     overdue_in_days * PENALTY_RATE / DAYS_IN_YEAR
   end
 
