@@ -174,6 +174,10 @@ $(document).ready(function() {
             .fadeIn();
           $(".my-account-sidebar li").removeClass("active");
           $(this).addClass("active");
+
+          var amount = $('#loan_id').find(':selected').attr('data-amount');
+          $(".monthly-payment").html(amount + ' ₽');
+          $("#sum").val(amount);
         }
       });
     })()
@@ -403,6 +407,14 @@ $(document).ready(function() {
 
   $('#user-document').change(function() {
     $('#user-document-form').submit();
+  });
+
+  $("#loan_id").change(function() {
+      var loanId = $('#loan_id').val()
+      var amount = $('#loan_id').find(':selected').attr('data-amount');
+      $("#customerNumber").val(loanId);
+      $("#sum").val(amount);
+      $(".monthly-payment").html(amount + ' ₽');
   });
 
   $('.estimation #new_loan').submit(function(e) {

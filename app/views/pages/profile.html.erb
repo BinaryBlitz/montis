@@ -90,7 +90,7 @@
                   </div>
                   <div class="loans-el">
                     <div class="loans-el-name">сумма платежа</div>
-                    <div class="loans-el-data"><%= loan.monthly_payment.to_i %> <span>₽</span></div>
+                    <div class="loans-el-data"><%= loan.monthly_payment %> <span>₽</span></div>
                   </div>
                   <div class="loans-el">
                     <div class="loans-el-name">осталось платежей</div>
@@ -151,19 +151,19 @@
 
         <div class="my-account-item" style="display: none;">
           <%= form_tag 'https://money.yandex.ru/eshop.xml', method: :post, class: 'payments-wrap' do |f| %>
-            <%= hidden_field_tag :shopId, Rails.application.secrets.yandex_kassa_shop_id %>
-            <%= hidden_field_tag :scid, Rails.application.secrets.yandex_kassa_scid %>
-            <%= hidden_field_tag :customerNumber, loan.id %>
-            <%= hidden_field_tag :sum, amount %>
+            <%= hidden_field_tag :shopId, 154182 %>
+            <%= hidden_field_tag :scid, 148674 %>
+            <%= hidden_field_tag :customerNumber, current_user.id %>
+            <%= hidden_field_tag :sum %>
             <div class="payments-items">
               <div class="payments-item">
                 <h2 class="payments-item-head">займ</h2>
-                <%= select_tag :loan_id, options_for_select(current_user.loans.map { |loan| ["№#{loan.id} | Займ под залог автомобиля", loan.id] }) %>
+                <%= select_tag :loan_id, options_for_select(current_user.loans.map { |loan| ["№#{loan.id} | Займ под залог автомобиля", loan.id, data: { amount: loan.monthly_payment }] }), id: 'loan_id' %>
               </div>
               <div class="payments-item">
                 <div class="payments-item-el">
                   <h2 class="payments-item-head">Рекомендуемая сумма</h2>
-                  <div class="payments-item-price">45 000 <span>₽</span></div>
+                  <div class="payments-item-price monthly-payment"></div>
                 </div>
                 <div class="payments-item-el">
                   <h2 class="payments-item-head">Сумма платежа</h2>
