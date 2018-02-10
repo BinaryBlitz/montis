@@ -23,4 +23,8 @@ Rails.application.routes.draw do
   resources :reviews, only: [:create]
   resources :payments, only: [:create]
   resource :user, only: [:update]
+  resources :payments, only: [] do
+    post :check, :aviso, :fail, on: :collection
+    get :success, :fail, on: :collection
+  end
 end
