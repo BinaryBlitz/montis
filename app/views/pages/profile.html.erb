@@ -150,11 +150,15 @@
         <!-- Payments -->
 
         <div class="my-account-item" style="display: none;">
-          <%= form_for Payment.new, html: { class: 'payments-wrap' } do |f| %>
+          <%= form_tag 'https://money.yandex.ru/eshop.xml', method: :post, class: 'payments-wrap' do |f| %>
+            <%= hidden_field_tag :shopId, Rails.application.secrets.yandex_kassa_shop_id %>
+            <%= hidden_field_tag :scid, Rails.application.secrets.yandex_kassa_scid %>
+            <%= hidden_field_tag :customerNumber, loan.id %>
+            <%= hidden_field_tag :sum, amount %>
             <div class="payments-items">
               <div class="payments-item">
                 <h2 class="payments-item-head">займ</h2>
-                <%= f.select :loan_id, current_user.loans.map { |loan| ["№#{loan.id} | Займ под залог автомобиля", loan.id] }, { include_blank: false } %>
+                <%= select_tag :loan_id, options_for_select(current_user.loans.map { |loan| ["№#{loan.id} | Займ под залог автомобиля", loan.id] }) %>
               </div>
               <div class="payments-item">
                 <div class="payments-item-el">
@@ -177,7 +181,7 @@
                 </label>
               </div>
               <div class="payments-pay">
-                <%= f.submit 'Оплатить' %>
+                <%= submit_tag 'Оплатить' %>
               </div>
             </div>
           <% end %>
