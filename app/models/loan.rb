@@ -39,7 +39,7 @@ class Loan < ApplicationRecord
   end
 
   def monthly_payment
-    amount * MONTHLY_RATE / (1 - 1 / (1 + MONTHLY_RATE) ** term)
+    (amount * MONTHLY_RATE / (1 - 1 / (1 + MONTHLY_RATE) ** term)).to_i
   end
 
   def overdue_in_days
