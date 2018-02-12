@@ -410,9 +410,7 @@ $(document).ready(function() {
   });
 
   $("#loan_id").change(function() {
-      var loanId = $('#loan_id').val()
       var amount = $('#loan_id').find(':selected').attr('data-amount');
-      $("#customerNumber").val(loanId);
       $("#sum").val(amount);
       $(".monthly-payment").html(amount + ' ₽');
   });

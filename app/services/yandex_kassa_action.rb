@@ -22,6 +22,8 @@ class YandexKassaAction
     :order_sum_amount, :order_sum_currency_paycash, :order_sum_bank_paycash,
     :shop_id, :invoice_id, :customer_number
   ]
+  VALID_CODE = '0'
+  INVALID_CODE = '1'
 
   class_attribute :action_name, :shop_id, :password
 

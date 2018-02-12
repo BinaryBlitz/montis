@@ -150,10 +150,10 @@
         <!-- Payments -->
 
         <div class="my-account-item" style="display: none;">
-          <%= form_tag 'https://money.yandex.ru/eshop.xml', method: :post, class: 'payments-wrap' do |f| %>
+          <%= form_tag 'https://demomoney.yandex.ru/eshop.xml', method: :post, class: 'payments-wrap' do |f| %>
             <%= hidden_field_tag :shopId, 154182 %>
-            <%= hidden_field_tag :scid, 148674 %>
-            <%= hidden_field_tag :customerNumber, current_user.id %>
+            <%= hidden_field_tag :scid, 557786 %>
+            <%= hidden_field_tag :customerNumber, current_user.email %>
             <%= hidden_field_tag :sum %>
             <div class="payments-items">
               <div class="payments-item">
@@ -191,7 +191,7 @@
               <% current_user.payments.each do |payment| %>
                 <div class="history-item">
                   <div class="history-item-content">
-                    <div class="loans-head-date">7 окт 2016</div>
+                    <div class="loans-head-date"><%= payment.created_at.strftime('%d.%m.%Y') %></div>
                       <div class="loans-node">
                         <div class="loans-node-number">№<%= payment.loan.id %></div>
                         <div class="loans-node-text">Займ под залог автомобиля</div>

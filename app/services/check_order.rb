@@ -18,9 +18,9 @@ class CheckOrder < YandexKassaAction
 
   def code
     if valid_signature?
-      valid_params? ? '0' : '100'
+      valid_params? ? VALID_CODE : INVALID_CODE
     else
-      '1'
+      INVALID_CODE
     end
   end
 

@@ -21,6 +21,6 @@ class PaymentAviso < Action
   private
 
   def code
-    valid_signature? ? '0' : '1'
+    valid_signature? ? VALID_CODE : INVALID_CODE
   end
 end

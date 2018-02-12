@@ -1,13 +1,6 @@
 class PaymentsController < ApplicationController
   protect_from_forgery with: :null_session
-
-  def create
-    if @payment.save
-      redirect_to @payment.payment_url
-    else
-      render json: @payment.errors, status: :unprocessable_entity
-    end
-  end
+  before_action :set_loan, only: [:check]
 
   def check
     @payment = @loan.create_payment(user: current_user)
@@ -33,5 +26,11 @@ class PaymentsController < ApplicationController
 
     logger.debug(params)
     head :ok
+  end
+
+  private
+
+  def set_loan
+    @loan = Loan.find(params[:loan_id])
   end
 end
