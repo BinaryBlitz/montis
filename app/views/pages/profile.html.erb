@@ -11,7 +11,7 @@
           <li><a href="#">Оставить отзыв</a></li>
         </ul>
         <div class="hotline">
-          <img src="assets/ic-hotline-black.png" alt="">
+          <%= image_tag "ic-hotline-black.png" %>
           <div class="hotline-content">
             <p>Телефон горячей линии</p>
             <a href="tel:74951202090"><span>+7 (495)</span> 120-20-90</a>
@@ -24,21 +24,21 @@
           <div class="profile">
             <div class="profile-item">
               <div class="profile-item-el">
-                <img src="assets/ic-user-black.svg" alt="">
+                <%= image_tag "ic-user-black.svg" %>
                 <p><%= current_user.loans.last.full_name %></p>
               </div>
               <div class="profile-item-el">
-                <img src="assets/ic-calendar-black.svg" alt="">
+                <%= image_tag "ic-calendar-black.svg" %>
                 <p><%= current_user.loans.last.birthdate.strftime('%d.%m.%Y') %></p>
               </div>
             </div>
             <div class="profile-item">
               <div class="profile-item-el">
-                <img src="assets/ic-mail.svg" alt="">
+                <%= image_tag "ic-mail.svg" %>
                 <%= link_to current_user.email, "mailto:#{current_user.email}" %>
               </div>
               <div class="profile-item-el">
-                <img src="assets/ic-phone.svg" alt="">
+                <%= image_tag "ic-phone.svg" %>
                 <%= link_to current_user.loans.last.phone_number, "tel:#{current_user.loans.last.phone_number}" %>
               </div>
             </div>
@@ -71,7 +71,7 @@
                   <div class="loans-node-text">Займ под залог автомобиля</div>
                 </div>
                 <div class="loans-head-img">
-                  <img src="assets/ic-arrow-up-black.svg" alt="">
+                  <%= image_tag "ic-arrow-up-black.svg" %>
                 </div>
               </div>
               <div class="loans-content">
@@ -216,7 +216,7 @@
                   <div class="review-head">
                     <div class="review-head-name"><%= current_user.loans.last.full_name %></div>
                     <div class="review-state">
-                      <img src="assets/ic-clock.svg" alt="">
+                      <%= image_tag "ic-clock.svg" %>
                       <div class="review-state-text"><%= status_for_review(current_user.review) %></div>
                     </div>
                   </div>
