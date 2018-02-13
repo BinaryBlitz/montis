@@ -1,4 +1,4 @@
-class PaymentAviso < Action
+class PaymentAviso < YandexKassaAction
   self.action_name = 'paymentAviso'
 
   def response
