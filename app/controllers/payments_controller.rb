@@ -22,10 +22,9 @@ class PaymentsController < ApplicationController
   end
 
   def fail
-    redirect_to root_url, notice: 'Оплата не прошла'
-
     logger.debug(params)
-    head :ok
+
+    redirect_to profile_url, notice: 'Оплата не прошла'
   end
 
   private
