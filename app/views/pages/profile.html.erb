@@ -150,9 +150,9 @@
         <!-- Payments -->
 
         <div class="my-account-item" style="display: none;">
-          <%= form_tag 'https://demomoney.yandex.ru/eshop.xml', method: :post, class: 'payments-wrap' do |f| %>
+          <%= form_tag 'https://money.yandex.ru/eshop.xml', method: :post, class: 'payments-wrap' do |f| %>
             <%= hidden_field_tag :shopId, 154182 %>
-            <%= hidden_field_tag :scid, 557786 %>
+            <%= hidden_field_tag :scid, 148674 %>
             <%= hidden_field_tag :customerNumber, current_user.email %>
             <%= hidden_field_tag :sum %>
             <div class="payments-items">
