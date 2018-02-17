@@ -1,35 +1,20 @@
 class PaymentsController < ApplicationController
   protect_from_forgery with: :null_session
-  before_action :set_loan, only: [:check]
+  before_action :set_loan, :set_notification, only: [:create]
 
-  def check
-    @payment = @loan.create_payment(user: current_user)
+  def create
+    @payment = @loan.payments.build
 
-    render text: CheckOrder.new(params).response
-  end
-
-  def aviso
-    aviso = PaymentAviso.new(params).valid_signature?
-    @payemnt = Payment.find(params[:orderNumber])
-    @payment.paid! if aviso
-
-    logger.debug("Payment #{@payment.id}: success callback")
-    render text: aviso.response
-  end
-
-  def success
-    redirect_to profile_url, notice: 'Оплата прошла успешно'
-  end
-
-  def fail
-    logger.debug(params)
-
-    redirect_to profile_url, notice: 'Оплата не прошла'
+    render plain: 'OK', status: :ok if @notification.success? && @payment.save
   end
 
   private
 
   def set_loan
     @loan = Loan.find(params[:loan_id])
+  end
+
+  def set_notification
+    @notification = Tinkoff::Notification.new(params)
   end
 end

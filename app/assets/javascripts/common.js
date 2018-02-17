@@ -176,8 +176,10 @@ $(document).ready(function() {
           $(this).addClass("active");
 
           var amount = $('#loan_id').find(':selected').attr('data-amount');
+          var order = $('#loan_id').find(':selected').attr('value');
+          $("#order").val(order);
           $(".monthly-payment").html(amount + ' ₽');
-          $("#sum").val(amount);
+          $("#amount").val(amount);
         }
       });
     })()
@@ -411,7 +413,9 @@ $(document).ready(function() {
 
   $("#loan_id").change(function() {
       var amount = $('#loan_id').find(':selected').attr('data-amount');
-      $("#sum").val(amount);
+      var order = $('#loan_id').find(':selected').attr('value');
+      $("#amount").val(amount);
+      $("#order").val(order);
       $(".monthly-payment").html(amount + ' ₽');
   });
 

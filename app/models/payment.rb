@@ -6,18 +6,8 @@ class Payment < ApplicationRecord
   after_save :set_next_date_of_payment, on: :create
   before_validation :set_amount
 
-  scope :paid, -> { where(paid: true) }
-
   def calculate_next_date_of_payment
     loan.payments.paid.count.months.from_now
-  end
-
-  def paid!
-    return if paid?
-
-    logger.debug("Payment #{id}: paid")
-
-    update_column(:paid, true)
   end
 
   private
