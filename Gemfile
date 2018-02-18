@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise', '~> 4.4.1'
 gem 'carrierwave', '~> 1.0'
+gem 'tinkoff', '~> 0.1'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery', '~> 3.2'

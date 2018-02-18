@@ -150,11 +150,15 @@
         <!-- Payments -->
 
         <div class="my-account-item" style="display: none;">
-          <%= form_tag 'https://money.yandex.ru/eshop.xml', method: :post, class: 'payments-wrap' do |f| %>
-            <%= hidden_field_tag :shopId, 154182 %>
-            <%= hidden_field_tag :scid, 148674 %>
-            <%= hidden_field_tag :customerNumber, current_user.email %>
-            <%= hidden_field_tag :sum %>
+          <script src="https://securepay.tinkoff.ru/html/payForm/js/tinkoff.js"></script>
+          <%= form_tag '#', class: 'payments-wrap', onsubmit: "pay(this); return false;" do |f| %>
+            <%= hidden_field_tag :terminalkey, '1518818010084DEMO' %>
+            <%= hidden_field_tag :frame, false %>
+            <%= hidden_field_tag :language, 'ru' %>
+            <%= hidden_field_tag :amount %>
+            <%= hidden_field_tag :order %>
+            <%= hidden_field_tag :email, current_user.email %>
+            <%= hidden_field_tag :name, current_user.loans.last.full_name %>
             <div class="payments-items">
               <div class="payments-item">
                 <h2 class="payments-item-head">займ</h2>

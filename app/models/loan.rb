@@ -27,7 +27,7 @@ class Loan < ApplicationRecord
   end
 
   def number_of_payments_left
-    term - payments.paid.count
+    term - payments.count
   end
 
   def amount_to_pay
