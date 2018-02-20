@@ -1,11 +1,22 @@
 class PaymentsController < ApplicationController
   protect_from_forgery with: :null_session
-  before_action :set_loan, :set_notification, only: [:create]
+  before_action :set_loan, only: [:create]
+  before_action :set_notification, only: [:notify]
 
   def create
     @payment = @loan.payments.build
 
-    render plain: 'OK', status: :ok if @notification.success? && @payment.save
+    if @payment.save
+      render js: "this.order.value=#{@payment.id};pay(this);"
+    else
+      redirect_to root_path, alert: 'Что-то пошло не так'
+    end
+  end
+
+  def notify
+    Payment.find(params[:OrderId]).paid! if @notification.success?
+
+    render plain: 'OK', status: :ok
   end
 
   private

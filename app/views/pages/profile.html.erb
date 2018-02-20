@@ -150,8 +150,7 @@
         <!-- Payments -->
 
         <div class="my-account-item" style="display: none;">
-          <script src="https://securepay.tinkoff.ru/html/payForm/js/tinkoff.js"></script>
-          <%= form_tag '#', class: 'payments-wrap', onsubmit: "pay(this); return false;" do |f| %>
+          <%= form_tag :payments, class: 'payments-wrap', remote: true do |f| %>
             <%= hidden_field_tag :terminalkey, '1518818010084DEMO' %>
             <%= hidden_field_tag :frame, false %>
             <%= hidden_field_tag :language, 'ru' %>
@@ -192,7 +191,7 @@
           <div class="history">
             <div class="history-head">история платежей</div>
             <div class="history-items">
-              <% current_user.payments.each do |payment| %>
+              <% current_user.payments.paid.each do |payment| %>
                 <div class="history-item">
                   <div class="history-item-content">
                     <div class="loans-head-date"><%= payment.created_at.strftime('%d.%m.%Y') %></div>

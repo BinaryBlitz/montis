@@ -27,11 +27,11 @@ class Loan < ApplicationRecord
   end
 
   def number_of_payments_left
-    term - payments.count
+    term - payments.paid.count
   end
 
   def amount_to_pay
-    amount - payments.sum(:amount)
+    amount - payments.paid.sum(:amount)
   end
 
   def penalty_amount

@@ -22,5 +22,7 @@ Rails.application.routes.draw do
   end
   resources :reviews, only: [:create]
   resource :user, only: [:update]
-  resources :payments, only: [:create]
+  resources :payments, only: [:create] do
+    post :notify, on: :collection
+  end
 end
