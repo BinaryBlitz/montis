@@ -21,3 +21,4 @@
 //= require select2
 //= require common
 //= require tinkoff
+//= require calltouch
